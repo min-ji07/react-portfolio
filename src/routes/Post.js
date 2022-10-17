@@ -1,4 +1,10 @@
-import { useState } from "react";
+import { 
+    Routes,
+    Route,
+    Link,
+    Outlet
+   } from 'react-router-dom'; // 이건 6에서만 쓸 수 있는건가보다
+import { useState, useNavigate } from "react";
 import { data, gogo } from '../data';
 // 코드 길어지면 import export 강의
 const Post = () => {
@@ -10,6 +16,8 @@ const Post = () => {
         '72a591baa05fb27ad8adac973de52f1e606bf473',
         'dfaf657304f2816b514692d36e761f7440f4d531'
     ]);
+    // 페이지 이동을 도와주는 함수
+    let navigate = useNavigate();
     return(
         <div>
             <img style={{width: '100%', height: '200px', objectFit:'contain', background: 'lightgray'}} 
@@ -19,25 +27,31 @@ const Post = () => {
                 <input onChange={(e) => {
                     setTitle(e.target.value);
                     // e.target 은 event가 발생하는 곳
-                }} />
+                }} value={title} placeholder="입력해보시오."/>
                 <div className="img-item">
                     <div style={{display: 'flex', justifyContent:'space-around'}}>
+                        {/* 이미지 클릭시 /detail/:index 로 이동 */}
                     {img.map((value, idx) => 
                         <img key={idx} src={process.env.PUBLIC_URL + `/img/${value}.jpg`} alt="짱구이미지"/>
                     )}
                     </div>
-                    <ImgBox img={img} item={item}/>
+                    <ImgBox img={img} item={item} navigate={navigate}/>
                 </div>
             </div>
+            {/* 이렇게 사용하던데 (리액트 라우터1) 셋팅이랑 기본 라우팅*/}
+            {/* <Routes>
+                <Route path="/">
+                </Route>
+            </Routes> */}
         </div>
     )
 }
-const ImgBox = ({item}) => {
+const ImgBox = ({item, navigate}) => {
     return(
         <div style={{display:'flex', justifyContent: 'space-between'}}>
             {item.map((value) => 
                 <div style={{width: '100%', textAlign:'center'}}>
-                    <p>{value.id}. {value.title}</p>
+                    <p onClick={() => {navigate('/postdetail')}}>{value.id}. {value.title}</p>
                     <p>{value.content}</p>
                     <p>{value.price}</p>
                 </div>
