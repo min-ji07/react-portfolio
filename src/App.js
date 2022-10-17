@@ -1,24 +1,41 @@
-import logo from './logo.svg';
+import { 
+  BrowserRouter as Router,
+  Switch,
+  Route
+ } from 'react-router-dom';
 import './App.css';
+import Hook from './components/Hook';
+import AboutMe from './routes/AboutMe';
+import GuestBook from './routes/GuestBook';
+import Home from './routes/Home';
+import Study from './routes/Study';
+import Arr from './routes/Arr';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/arr">
+          <Arr/>
+        </Route>
+        <Route path="/aboutme">
+          <AboutMe/>
+        </Route>
+        <Route path="/guestbook">
+          <GuestBook/>
+        </Route>
+        <Route path="/study">
+          <Study>
+            {/* 안에 추가는 안되낭 */}
+              <Hook/>
+          </Study>
+        </Route>
+        {/* 왜 그런건지 아직 모르겠지만 / 를 제일 밑으로 */}
+        <Route path="/">
+          <Home/>
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 

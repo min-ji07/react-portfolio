@@ -1,0 +1,208 @@
+@charset "utf-8";
+
+@import url(https://fonts.googleapis.com/earlyaccess/notosanskr.css);
+@import url(https://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+*{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+@font-face {
+    font-family: 'CookieRun Bold';
+    src: url('../font/CookieRun\ Bold.ttf');
+}
+html, body{
+    font-size: 20px;
+    height: 100%; min-height: 100%;
+}
+html, body, div, span, object, iframe, input,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video, textarea
+ {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    /* font-size:100%; */
+    font-size: 20px;
+    vertical-align:baseline;
+    background:transparent;
+    font-family:'CookieRun Bold', 'Noto Sans KR','Noto Sans Korean', "Nanum Gothic", sans-serif;
+}
+body {
+    line-height:1;
+}
+ul li{
+    list-style: none;
+}
+a{
+    color: black;
+    text-decoration: none;
+}
+input{
+    border: 1px solid black;
+    padding: 14px;
+    border-radius: 10px;
+    background: white;
+}
+form{
+    /* 최대크기 다시 설정 */
+    width: 60%;
+    max-width: 500px;
+    position: relative;
+}
+textarea{
+    width: 100%;
+    height: 200px;
+    border-radius: 15px 15px 0px 0px;
+    box-shadow: 3px 3px 10px #222625;
+    padding: 18px 18px 36px;
+    font-size: 18px;
+    margin-bottom: 35px;
+    resize: none;
+    overflow-y: scroll;
+}
+form input[type='submit']{
+    position: absolute;
+    bottom: 3px;
+    appearance: none;
+    left: 0;
+    border: 0;
+    width: 100%;
+    border-radius: 0 0 15px 15px;
+    background: blanchedalmond;
+    padding: 6px;
+    font-size: 18px;
+}
+#root{
+    position: relative;
+    height: 100%;
+    min-height: 100%;
+}
+
+
+.flex{
+    display: flex;
+}
+
+
+
+header{
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    /*  */
+    background-color: antiquewhite;
+}
+header .logo{
+    font-size: 2.5rem;
+}
+ul li,
+header ul li{
+    margin: 0 1rem;
+    font-size: 1.2rem;
+}
+.wrap, .inner_wrap{
+    height: 100%;
+}
+.inner_wrap{
+    margin: 20px 3rem 0;
+}
+
+
+
+
+
+/* 임시 btn */
+.btn_b{
+    appearance: none;
+    border: 1px solid gray;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* about me */
+.ft_red{
+    color: red;
+}
+.blog{
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+.blog_title{
+    display: flex;
+    justify-content: space-between;
+    padding: 14px;
+    height: auto;
+    background: lightgray;
+}
+.blog_inner{
+    margin: 20px 30px;
+    border: 1px solid black;
+    padding: 16px;
+}
+.blog_content{
+    position: relative;
+    height: 100px;
+    border: 1px solid gray;
+    padding: 14px;
+}
+.blog_content button{
+    position: absolute;
+    right: 14px;
+    top: 14px;
+}
+.md_wrap{
+    margin: 20px 30px;
+    background: lightgray;
+    height: auto;
+    padding: 20px;
+}
+.mm_wrap{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 400px;
+    height: 300px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background: lightpink;
+    padding: 16px;
+}
+.mm_wrap ul li{
+    margin: 14px 0;
+}
+.mm_btn{
+    position: fixed;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+}
+.close_mm{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.p_div{
+    margin: 20px 30px;
+}
+.p_div > p{
+    margin-bottom: 10px;
+}
+.p_div > p > span{
+    background: tomato;
+    padding: 6px;
+    margin-left: 30px;
+}
