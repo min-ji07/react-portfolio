@@ -72,6 +72,8 @@ function Home(){
         <div id="random_bg" className="wrap">
             <Header/>
             <div className="inner_wrap">
+                <img src={process.env.PUBLIC_URL + `/img/jjanggu.jpg`} alt="" style={{width: '100px',height: '100px'}}/>
+                <br/>
                 <input type="text" ref={inputIdRef} placeholder="userName" />
                 <input type="password" ref={inputPwRef} placeholder="userPassWord" />
                 <button onClick={login}>Login</button>
