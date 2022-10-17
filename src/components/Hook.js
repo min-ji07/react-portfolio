@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef, useCallback } from "react";
+import { Outlet } from "react-router-dom";
 import TestBox from "./TestBox";
 
 // ****** input
@@ -130,6 +131,7 @@ function Hook(){
     }, [size]);
     return (
         <div>
+            <Outlet/>
             <h1 style={{fontSize: '40px'}}>HOOK</h1>
             <input type="number" value={callBack} onChange={(e) => setCallBack(e.target.value)} placeholder="useCallback"/>
             <button onClick={somefunction}>Call someFunc</button>

@@ -2,9 +2,10 @@ import {
     Routes,
     Route,
     Link,
-    Outlet
+    Outlet,
+    useNavigate
    } from 'react-router-dom'; // 이건 6에서만 쓸 수 있는건가보다
-import { useState, useNavigate } from "react";
+import { useState } from "react";
 import { data, gogo } from '../data';
 // 코드 길어지면 import export 강의
 const Post = () => {
@@ -38,20 +39,18 @@ const Post = () => {
                     <ImgBox img={img} item={item} navigate={navigate}/>
                 </div>
             </div>
-            {/* 이렇게 사용하던데 (리액트 라우터1) 셋팅이랑 기본 라우팅*/}
-            {/* <Routes>
-                <Route path="/">
-                </Route>
-            </Routes> */}
         </div>
     )
 }
 const ImgBox = ({item, navigate}) => {
     return(
         <div style={{display:'flex', justifyContent: 'space-between'}}>
-            {item.map((value) => 
+            {item.map((value, idx) => 
                 <div style={{width: '100%', textAlign:'center'}}>
-                    <p onClick={() => {navigate('/postdetail')}}>{value.id}. {value.title}</p>
+                    {/* 오 navigate 굿👍 */}
+                    {/* navigate(1) --> 앞으로 한 페이지 이동 */}
+                    {/* navigate(-1) --> 뒤로 한 페이지 이동 */}
+                    <p onClick={() => {navigate(`/postdetail:[${idx}]`)}}>{value.id}. {value.title}</p>
                     <p>{value.content}</p>
                     <p>{value.price}</p>
                 </div>

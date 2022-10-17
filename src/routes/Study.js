@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import Hook from "../components/Hook";
 
 function Study(){
@@ -6,8 +6,10 @@ function Study(){
         <>
             <div>
                 <Link to={'/study/hook'}>hook</Link>
+                {/* 클릭하면 hook 보여줌 */}
             </div>
-            <Hook/>
+            {/* app.js 26번째 줄 Route */}
+            <Outlet/>
         </>
     )
 }
