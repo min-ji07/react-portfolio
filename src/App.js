@@ -10,6 +10,9 @@ import GuestBook from './routes/GuestBook';
 import Home from './routes/Home';
 import Study from './routes/Study';
 import Arr from './routes/Arr';
+import Post from './routes/Post';
+
+// https://leejeongmin.vercel.app/ 참고
 
 function App() {
   return (
@@ -20,6 +23,9 @@ function App() {
         </Route>
         <Route path="/aboutme">
           <AboutMe/>
+        </Route>
+        <Route path="/project">
+          <Post/>
         </Route>
         <Route path="/guestbook">
           <GuestBook/>

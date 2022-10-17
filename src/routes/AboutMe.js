@@ -23,7 +23,7 @@ function AboutMe(){
 
     // 좋아요 count 
     const [count, setCount] = useState([0, 0, 0]);
-    const write = [
+    const [write, setWrite] = useState([
         {
             title: '애플코딩에서 리액트 배우는중',
             content: '오늘 한 4화 들었나',
@@ -36,7 +36,19 @@ function AboutMe(){
             title: '내일 아침 9시30분까지 병원 가야함',
             content: '한시간 있다가 씻어야겠음',
         }
-    ];
+    ]);
+    const [objectTitle, setObjectTitle] = useState('');
+    const [objectContent, setObjectContent] = useState('');
+    const ObjectArrPush = () => {
+        let copy = [...write];
+        // 이렇게 추가하면 될듯 /엥.. 하나밖에 추가 안됨.. 무엇..
+        let test = copy.length + 1;
+        copy[test] = {
+            title: objectTitle,
+            content: objectContent
+        }
+        setWrite(copy);
+    }
 
     // 그냥 배열 내 값 수정
     const [arr, setArr] = useState([
@@ -46,9 +58,12 @@ function AboutMe(){
     ]);
     // 버튼 클릭시 글 수정
     const changeWrite = (e) => {
-        const test = e.target;
-        // 해당 요소 key 값이나 누른 거 어케 가져오지? --> 가져와야 if문으로 클릭한 곳만 수정할 수 있음
-        console.log(test.index);
+        e.stopPropagation();
+        // 이벤트 버블링 금지
+        const test = e.target.key;
+        console.log(test);
+        // 해당 요소 key 값이나 누른 거 어케 가져오지?
+        // --> 가져와야 if문으로 클릭한 곳만 수정할 수 있음
         let newArr = [...arr];
         newArr = [
             '3. 수정버튼 누르면 수정/대신 전체 수정임/각자 수정을 만들어볼 것',
@@ -64,14 +79,34 @@ function AboutMe(){
         setArr(kanada);
     }
 
-    // 클릭시 보이기
+    // Modal을 사용하면 좋은, 장점 알아보기 클릭시 보이기
     const [show, setShow] = useState(false);
     // memo
     const [memo, setMemo] = useState('닫기🐱‍👤/memo로 props보내기');
-
-    const [modalCount, setModalCount] = useState(0);
-    
-
+    // 해당 글 클릭시 해당글만 보이기
+    const [arrShow, setArrShow] = useState(false);
+    const [title, setTitle] = useState(0);
+    // input에 글 입력 후 배열 추가하기
+    const [post, setPost] = useState('');
+    const onChange = (e) =>{
+        setPost(e.target.value);
+    }
+    const onPushArr = (e) => {
+        let pushArr = [...arr];
+        pushArr.push(post);
+        // unshift 배열의 맨 앞에 값을 추가
+        setArr(pushArr);
+    }
+    // 버튼 클릭시 글 삭제
+    // 얘는 index만 들어오면 잘 작동할 것 같은데 span 태그 안에서 작동이 안됨.. 왜지..?
+    const onSpliceArr = (e) => {
+        e.stopPropagation();
+        let copy = [...arr];
+        console.log(copy);
+        copy.splice(0, 1);
+        console.log(copy);
+        setArr(copy);
+    }
     return(
         <>
             <h1 className="blog">BLOG</h1>
@@ -80,17 +115,49 @@ function AboutMe(){
                 <li>project</li>
             </ul>
             <div className="p_div">
-                {/* <Btn text={'가나다 순으로 정렬'} onClick={kanadaChange}/> */}
-                <button onClick={kanadaChange} className='btn_b'>가나다 순으로 정렬</button>
+                {/* <Btn text={'오름차순으로 정렬'} onClick={kanadaChange}/> */}
+                <button onClick={kanadaChange} className='btn_b'>오름차순으로 정렬</button>
+                <br/>
+                <div style={{display:'flex'}}>
+                    <input type="text" style={{width: '100%'}} onChange={onChange} placeholder="글을 입력하세요. 배열에 추가할거예요"/>
+                    <button onClick={onPushArr} style={{ width: '200px'}}>배열에 추가하기</button>
+                </div>
                 {arr.map((arr, index) => (
-                    <p>
-                        {arr}
-                        <span key={index} onClick={changeWrite}>글 수정</span>
-                    </p>
+                    <>
+                        <p key={index} style={{display:'flex', justifyContent: 'space-between'}} onClick={() => {
+                            setArrShow(true);
+                            setTitle(index);
+                            console.log(index);
+                        }}>
+                            {arr}
+                            <div>
+                                <span onClick={changeWrite}>글 수정</span>
+                                <span style={{background: 'lightpink'}} onClick={onSpliceArr}>글 삭제</span>
+                            </div>
+                        </p>
+                        {/* 이벤트 버블링때문에 요소 나눔 */}
+                    </>
                     )
                 )}
             </div>
+            {
+                arrShow ? (
+                <div className="md_wrap" style={{background: 'lightgreen'}}>
+                    {arr[title]}
+                </div>
+                ) : null
+            }
+
             <div className="blog_inner">
+                <div style={{width: '100%', display:'flex', alignItems:'center', marginBottom: '20px'}}>
+                    <input type="text" onChange={(e) => {
+                        setObjectTitle(e.target.value);
+                    }} style={{width: '100%'}} placeholder="여기는 배열객체 제목 입력란입니다"/>
+                    <input type="text" onChange={(e) => {
+                        setObjectContent(e.target.value);
+                    }} style={{width: '100%'}} placeholder="여기는 배열객체 내용 입력란입니다"/>
+                    <button onClick={ObjectArrPush} style={{width: '120px', height: '40px', marginLeft: '20px'}}>배열객체추가</button>
+                </div>
                 {write.map((write, index) => 
                 <>
                     <p key={index} className="blog_title">
@@ -119,19 +186,21 @@ function AboutMe(){
             {show ? 
             <>
                 {/* 객체를 보낼 때 */}
-                <Modal {...write}/>
                 {/* 그냥 배열 보낼 때 / 편하다! */}
-                <Modal1 arr={arr} bgColor={'skyblue'} onClick={kanadaChange}/>
+                <Modal arr={arr} bgColor={'skyblue'} onClick={kanadaChange}/>
             </> : null }
             <button className="mm_btn" onClick={() => setMemo(!memo)}>메모열기/닫기</button>
-            {/* <Btn text={'메모열기/닫기'} onClick={() => setMemo(!memo)} /> */}
-            {memo ? <Memo memo={memo}/> : null}
+            {/* show hide 버튼값은 어떻게 넘기는지 */}
+            {/* <Btn text={'메모열기/닫기'} setBtnShow={setBtnShow}/> */}
+            {memo ? null : <Memo memo={memo}/>}
+            {/* 이거 뭔가 이상한데..? */}
         </>
     )
 }
 // const 변수의 이점 --> error 메세지 출력
 // 
-const Modal1 = (props) => {
+const Modal = (props) => {
+    console.log(props);
     return(
         <div className="md_wrap" style={{background: props.bgColor}}>
             <p>이것도 Modal과 같음</p>
@@ -143,38 +212,10 @@ const Modal1 = (props) => {
             <p className="ft_red">style 값도 props로 받을 수 있음 부모: 컴포넌트 옆에 속성 bgColor=괄호안에 'skyblue'  / 자식 : background: props.bgColor</p>
             <br/>
             {/* 이렇게 써야하는 거였음 */}
-            <button onClick={props.kanadaChange}>가나다 순으로 정렬</button>
+            <button onClick={props.kanadaChange}>오름차순으로 정렬</button>
             {props.arr.map((value, index) => <p key={index}>{value}</p>)}
+            <p>얘는 왜 안되는지 모르겠다</p>
         </div>
-    )
-}
-function Modal(props){
-    console.log('Modal로 보낸 props',props);
-    // 이거는 안된단말이야..
-    // console.log(props.write.title);
-    return(
-        <>
-            <div className="md_wrap">
-                <h3>클릭시 배열 객체 값 가져오기</h3>
-                <button>props function</button>
-                <p>props 값 --> <span className="ft_red">{props[1].title}</span> 왜 안나오지</p>
-                <p>props[index].title 하면 잘 나오긴하는데 왜 map은 안되는겨</p>
-                <div>
-                    {/* {props.map((title, content, index) => (
-                        <>
-                        /
-                            <p key={props.index}>{props[index].title}</p>
-                            <p>{props[index].content}</p>
-                        </>
-                    ))} */}
-                </div>
-                <br/>
-                <p>컴포넌트 장점, 사용하면 좋은</p>
-                <p>반복적으로 사용하는 html</p>
-                <p>큰 페이지(반복되는)</p>
-                <p>자주 변경되는 페이지 만들어놓으면 필요없을 때 없애고 필요할 때 추가</p>
-            </div>
-        </>
     )
 }
 
@@ -186,6 +227,12 @@ const Memo = ({memo}) => {
             <a href="#" className="close_mm">{memo}</a>
             {/* 여기도 안나옴 */}
             <ul>
+                <li>
+                show hide 버튼값은 어떻게 넘기는 법 / value, setValue, onClick
+                </li>
+                <li>
+                Route -> aboutMe -> todolist 로 가는방법 알아보기
+                </li>
                 <li>
                     <a href="https://codingapple.com/course/react-basic/">
                 https://codingapple.com/course/react-basic/
@@ -203,7 +250,7 @@ const Memo = ({memo}) => {
                     <a href="https://crispypotato.tistory.com/150">https://crispypotato.tistory.com/150</a>
                 </li>
                 <li>
-                    배열 객체 관련 클릭시 해당 요소 key 값 가져오는 법 50
+                👍 배열 객체 관련 클릭시 해당 요소 key 값 가져오는 법 50 --> 89~107
                 </li>
                 <li>
                     Btn 컴포넌트 클릭시 onClick 사용 가능하게 하기(컴포넌트로 함수사용) aboutMe 81 / 121-124
@@ -212,7 +259,7 @@ const Memo = ({memo}) => {
                     Memo컴포넌트로 onClick, memo state 보내서 닫기 버튼 클릭시 닫히게 하기 174
                 </li>
                 <li>
-                    
+                방명록 입력 시간 띄우기, 근데 다 같이 바뀜..(GuestBook 25)
                 </li>
                 <li>
                 </li>

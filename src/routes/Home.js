@@ -111,7 +111,7 @@ function Home(){
                 하면 value 는 10인거임
                 
                 */}
-                <Btn/>
+                <Btn text={'왜 만들어놓은 버튼이지?'}/>
                 <p>{ref.current}</p>
 
 

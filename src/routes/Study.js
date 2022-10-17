@@ -5,7 +5,6 @@ function Study(){
     return(
         <>
             <div>
-                {/* 이렇게는 안되나? */}
                 <Link to={'/study/hook'}>hook</Link>
             </div>
             <Hook/>

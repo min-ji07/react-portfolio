@@ -21,6 +21,14 @@ function GuestBook(){
             setContent(content);
             setArr(banana => [content, ...banana]);
             setContent("");
+
+            // 방명록 입력 시간 띄우기, 근데 다 같이 바뀜..
+            const date = new Date();
+            const hours = date.getHours();
+            setHours(hours);
+            const minutes = String(date.getMinutes()).padStart(2, "0");
+            setMinutes(minutes);
+            console.log(minutes);
         }else{
             if(content === ""){
                 return;
@@ -28,6 +36,10 @@ function GuestBook(){
             console.log('값X');
         }
     };
+    const [date, setDate] = useState('');
+    const [hours, setHours] = useState('');
+    const [minutes, setMinutes] = useState('');
+    
     return(
         <div className="wrap">
             <div className="inner_wrap">
@@ -42,7 +54,16 @@ function GuestBook(){
                     {
                         save ?  (
                         <ul>
-                            {arr.map((value, index) => <li key={index} style={{border: '1px solid black', width: '500px', height: '100px', marginTop: '20px', padding: '16px'}}>{value}</li>)}
+                            {arr.map((value, index) => 
+                            <li key={index} style={{display:'flex', justifyContent:'space-between', border: '1px solid black', width: '500px', height: '100px', marginTop: '20px', padding: '16px'}}>
+                                <div>
+                                    {value} 
+                                </div>
+                                <div>
+                                    {hours}:{minutes}
+                                </div>
+                            </li>
+                            )}
                         </ul>
                         ) : null
                     }
