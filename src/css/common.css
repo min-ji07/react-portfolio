@@ -123,16 +123,6 @@ header ul li{
 
 
 
-
-/* 임시 btn */
-.btn_b{
-    appearance: none;
-    border: 1px solid gray;
-    padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 10px;
-}
-
 /* about me */
 .ft_red{
     color: red;
@@ -227,6 +217,7 @@ header ul li{
     margin-bottom: 10px;
 }
 .img-box{
+    position: relative;
     display: grid;
     width: 100%;
     text-align: center;
@@ -236,6 +227,7 @@ header ul li{
 }
 .img-inner{
     text-align: center;
+    height: 240px;
 }
 .img-box .img-inner > img{
     width: 100%;
@@ -245,8 +237,22 @@ header ul li{
 .img-box-text{
     margin-bottom: 1rem;
 }
-.img-box-text p {
-    margin-bottom: 10px;
+.img-box .loading{
+    position: absolute;
+    width: 200px; height: 200px;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+}
+.img-box .loading p{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.img-box .loading img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 @media (max-width: 760px){
     .img-box{

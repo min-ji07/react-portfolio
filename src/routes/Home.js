@@ -102,7 +102,7 @@ function Home(){
                 {/* 풀스크린? 슬라이드 */}
 
                 {/* 
-                
+            
                 함수에서 값 받아오기
                 const value = calculate();
 
@@ -113,11 +113,17 @@ function Home(){
                 하면 value 는 10인거임
                 
                 */}
-                <Btn text={'왜 만들어놓은 버튼이지?'}/>
+                <br/>
+                <Btn text={'왜 만들어놓은 버튼이지? '}  border="white"/>
                 <p>{ref.current}</p>
+                <div>
+                    <p>컴포넌트의 lifecycle</p>
+                    <p>페이지 장착될 때 (mount) / 예를 들어 클릭 시 페이지 보일 때</p>
+                    <p>업데이트 될 때 (update)</p>
+                    <p>페이지 제거 될 때 (unmount)</p>
+                </div>
 
-
-
+                <br/>
                 <p>
                     리덕스
                     - 사용이유

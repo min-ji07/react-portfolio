@@ -3,38 +3,130 @@ import {
     Route,
     Link,
     Outlet,
-    useNavigate
+    useNavigate,
+    json
    } from 'react-router-dom'; // 이건 6에서만 쓸 수 있는건가보다
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { data, gogo } from '../data';
 import PostDetail from '../components/PostDetail';
+import axios from 'axios';
+
 // 코드 길어지면 import export 강의
 const Post = () => {
     // 일단 서버에서 가져온 데이터
-    let [item] = useState(data);
+    let [item, setItem] = useState(data);
     const [title, setTitle] = useState('');
     const [img, setImg] = useState([
         '64f2e3bfa8f54698fb5228aadad5c7a07909ae7f',
         '72a591baa05fb27ad8adac973de52f1e606bf473',
         'dfaf657304f2816b514692d36e761f7440f4d531'
     ]);
+    const [imgPlus] = useState([
+        '023c3cee1f8f76526b1086abca413f182b4700b8',
+        '10241f6c6779a09b4c528705e3004fa317a7abbd',
+        '833f6076d7dd105c72ea48aebf60341e8d135386'
+    ]);
+    const [imgPlus2] = useState([
+        '9beeaf2766837cc132df501e186de764ac096f7a',
+        '42ca0a4fdb62e20d88af06631a677fc0a91f279b',
+        'e5110a2cf766f1626f615b68f4372f4ec23be863'
+    ]);
+    // 더보기
+    const [clickNum, setClickNum] = useState(1);
+    const [more, setMore] = useState(true);
+    // 로딩중
+    const [loading, setLoading] = useState(false);
+    const onClick = () => {
+        setClickNum(clickNum + 1);
+        // 버튼 2회 클릭시 다른 정보 가져오기
+        // 버튼 3번 클릭시 상품 없다고 알려주기
+        // 버튼 클릭시 로딩중입니다 글자 띄우기
+        // 1a04cafd9593925989a9589cc4531377a7695699.gif --> 로딩중 화면으로 하면 재밌을 듯
+        /*
+            fetch('url')
+            .then(result => result.json()) --> array/object 변환과정 필요
+            .then(data => {
+
+            })
+        */
+        if(clickNum === 1){
+            setLoading(true);
+            axios.get(`https://codingapple1.github.io/shop/data2.json`)
+            .then((json) => {
+                let copy = [
+                    ...item,
+                    ...json.data
+                ];
+                let copyImg = [
+                    ...img,
+                    ...imgPlus
+                ];
+                setItem(copy);
+                setImg(copyImg);
+                setTimeout(() => {
+                    setLoading(false);
+                },1000)
+            })
+            .catch(() => {
+                console.log('data 가져오기 실패');
+            });
+        }else if(clickNum === 2){
+            setLoading(true);
+            axios.get(`https://codingapple1.github.io/shop/data3.json`)
+            .then((json) => {
+                let copy = [
+                    ...item,
+                    ...json.data
+                ];
+                let copyImg = [
+                    ...img,
+                    ...imgPlus2
+                ];
+                setItem(copy);
+                setImg(copyImg);
+                setTimeout(() => {
+                    setLoading(false);
+                },1000)
+            })
+            .catch(() => {
+                console.log('data 가져오기 실패');
+            });
+            setMore(false);
+        }else{
+
+        }
+        // 서버로 데이터 전송하는 post요청
+        // axios.post(`/url~~~`, {name: 'dust'}) 기타등등
+
+        // 동시에 여러곳으로 요청할 때
+        // Promise.all([ axios.get('/url~'), axios.get('/url2~'), axios.get('/url3~'),])
+        // .then(()=>{
+        // 두개의 요청이 성공했을 때 안에 있는 코드 실행
+        // })
+    }
+    useEffect(() => {
+        // 숫자면 true
+        if(!isNaN(title)){
+            console.log('true')
+        }else{
+            console.log('false');
+            alert('숫자만 입력하세요');
+        }
+    },[title])
     // 페이지 이동을 도와주는 함수
     let navigate = useNavigate();
     return(
         <div>
-            <img className="post-main-img" src={process.env.PUBLIC_URL + `/img/1a04cafd9593925989a9589cc4531377a7695699.gif`} alt="포스트 메인 짱구 이미지"/>
+            <img className="post-main-img" src={process.env.PUBLIC_URL + `/img/2e7bac51f4d7d7f33379dae9ce79b0ec1c1773c4.gif`} alt="포스트 메인 짱구 이미지"/>
             <Outlet/>
 
             <Link to={'/post/postdetail'}>postdetail 왜 안나오는지 모르겠지만.. 일단 주소로 이동</Link>
             <div className="post-inner">
                 <h1>글을 작성해주세요.</h1>
-                <input onChange={(e) => {
-                    setTitle(e.target.value);
-                    // e.target 은 event가 발생하는 곳
-                }} value={title} placeholder="입력해보시오."/>
-                <ImgBox img={img} item={item} navigate={navigate}/>
+                <input onChange={(e) => setTitle(e.target.value)} value={title} placeholder="입력해보시오."/>
+                <ImgBox img={img} item={item} navigate={navigate} loading={loading}/>
             </div>
-
+            {more ? <button onClick={onClick}>상품더보기</button> : null}
             <Routes>
                 <Route path={`/postdetail/:id`} element={<PostDetail img={img} item={item} />} /> 
             </Routes>
@@ -42,9 +134,15 @@ const Post = () => {
         </div>
     )
 }
-const ImgBox = ({img, item, navigate}) => {
+const ImgBox = ({img, item, navigate, loading}) => {
     return(
         <div className="img-box">
+            {loading ? 
+                <div className='loading'>
+                    <p>Loading...</p>
+                    <img src={process.env.PUBLIC_URL + `/img/1a04cafd9593925989a9589cc4531377a7695699.gif`} alt="loading..."/>
+                </div> : null}
+            {/* 배열 추가되도 안나오길래 확인 했더니 이미지가 없어서 그런 것 */}
             {img.map((img, idx) => 
             <div className="img-inner">
                 <img key={idx} src={process.env.PUBLIC_URL + `/img/${img}.jpg`} alt={idx}/>
@@ -62,6 +160,8 @@ const ImgBox = ({img, item, navigate}) => {
 export default Post;
 
 /*
+
+npm install styled-components
 
 state 변경함수는 늦게 처리됨 --> 비동기처리
 (왜냐하면 저장 후에 새로고침 때문에?)
