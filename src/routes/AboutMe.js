@@ -4,23 +4,6 @@ import Btn from '../components/Btn';
 
 
 function AboutMe(){
-    // useState 여러개 사용 할거면 이해해야하는듯.. 잘 모름 ㅠ
-
-    // const [write, setWrite] = useState([
-    //     {
-    //         title: '애플코딩에서 리액트 배우는중',
-    //         content: '오늘 한 3화 들었나',
-    //     },
-    //     {
-    //         title: '애플코딩 리액트 숙제 하는중',
-    //         content: '다들 어떻게 한걸까',
-    //     },
-    //     {
-    //         title: '내일 아침 9시30분까지 병원 가야함',
-    //         content: '한시간 있다가 씻어야겠음',
-    //     }
-    // ])`` 
-
     // 좋아요 count 
     const [count, setCount] = useState([0, 0, 0]);
     const [write, setWrite] = useState([
@@ -107,13 +90,20 @@ function AboutMe(){
         console.log(copy);
         setArr(copy);
     }
+    const [tab, setTab] = useState(0);
     return(
         <>
             <h1 className="blog">BLOG</h1>
             <ul className="flex">
-                <li>Blog</li>
-                <li>project</li>
+                <li onClick={() => {
+                    console.log(tab);
+                    setTab(0)}}>Blog</li>
+                <li onClick={() => {
+                    console.log(tab);
+                    setTab(1)}}>project</li>
+                    {/* 콘솔찍어보면 알겠지만 +1 되지않고 0이 먼저 찍힘 --> 이것은 비동기처리 */}
             </ul>
+            {/* 해당 글을 컴포넌트로 만들어서 if문으로 사용해도 될 것 같음 괄호때문에 막히니까 */}
             <div className="p_div">
                 {/* <Btn text={'오름차순으로 정렬'} onClick={kanadaChange}/> */}
                 <button onClick={kanadaChange} className='btn_b'>오름차순으로 정렬</button>
@@ -147,7 +137,6 @@ function AboutMe(){
                 </div>
                 ) : null
             }
-
             <div className="blog_inner">
                 <div style={{width: '100%', display:'flex', alignItems:'center', marginBottom: '20px'}}>
                     <input type="text" onChange={(e) => {
@@ -194,9 +183,32 @@ function AboutMe(){
             {/* <Btn text={'메모열기/닫기'} setBtnShow={setBtnShow}/> */}
             {memo ? null : <Memo memo={memo}/>}
             {/* 이거 뭔가 이상한데..? */}
+            {tab === 1 ? 
+                <div>
+                    tab 2번
+                </div> : null}
         </>
     )
 }
+/*
+예를들어 밑에 함수처럼 컴포넌트를 만든다면
+컴포넌트는 return문 꼭 필요함 안써주면 안됨
+
+function TabContent({tab}){
+    if(tab == 0){
+        return <div>내용0</div>
+    }else if(tab == 0){
+        return <div>내용1</div>
+    }else if(tab == 0){
+        return <div>내용2</div>
+    }
+}
+
+*/
+
+
+
+
 // const 변수의 이점 --> error 메세지 출력
 // 
 const Modal = (props) => {

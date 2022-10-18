@@ -36,17 +36,23 @@ const Post = () => {
     const [more, setMore] = useState(true);
     // 로딩중
     const [loading, setLoading] = useState(false);
+    // fade in
+    const [fade, setFade] = useState('');
+    useEffect(() => {
+        // fade 값이 변경되면 2초후에 아이디 값 추가
+        let clear = setTimeout(() => {setFade('ani-fade-out')}, 1500);
+        // return 안에 넣어두니까 좀 느린데.. 반응이
+        return(() => {
+            clearTimeout(clear);
+            setFade('');
+        })
+    }, [loading]);
     const onClick = () => {
         setClickNum(clickNum + 1);
-        // 버튼 2회 클릭시 다른 정보 가져오기
-        // 버튼 3번 클릭시 상품 없다고 알려주기
-        // 버튼 클릭시 로딩중입니다 글자 띄우기
-        // 1a04cafd9593925989a9589cc4531377a7695699.gif --> 로딩중 화면으로 하면 재밌을 듯
         /*
             fetch('url')
             .then(result => result.json()) --> array/object 변환과정 필요
             .then(data => {
-
             })
         */
         if(clickNum === 1){
@@ -65,13 +71,15 @@ const Post = () => {
                 setImg(copyImg);
                 setTimeout(() => {
                     setLoading(false);
-                },1000)
+                    setFade('ani-fade-out');
+                },2000)
             })
             .catch(() => {
                 console.log('data 가져오기 실패');
             });
         }else if(clickNum === 2){
-            setLoading(true);
+            setLoading(true); 
+            setFade('');
             axios.get(`https://codingapple1.github.io/shop/data3.json`)
             .then((json) => {
                 let copy = [
@@ -86,7 +94,8 @@ const Post = () => {
                 setImg(copyImg);
                 setTimeout(() => {
                     setLoading(false);
-                },1000)
+                    setFade('ani-fade-out');
+                },2000)
             })
             .catch(() => {
                 console.log('data 가져오기 실패');
@@ -124,7 +133,7 @@ const Post = () => {
             <div className="post-inner">
                 <h1>글을 작성해주세요.</h1>
                 <input onChange={(e) => setTitle(e.target.value)} value={title} placeholder="입력해보시오."/>
-                <ImgBox img={img} item={item} navigate={navigate} loading={loading}/>
+                <ImgBox img={img} item={item} navigate={navigate} loading={loading} fade={fade}/>
             </div>
             {more ? <button onClick={onClick}>상품더보기</button> : null}
             <Routes>
@@ -134,11 +143,11 @@ const Post = () => {
         </div>
     )
 }
-const ImgBox = ({img, item, navigate, loading}) => {
+const ImgBox = ({img, item, navigate, loading, fade}) => {
     return(
         <div className="img-box">
             {loading ? 
-                <div className='loading'>
+                <div className={`loading ` + fade}>
                     <p>Loading...</p>
                     <img src={process.env.PUBLIC_URL + `/img/1a04cafd9593925989a9589cc4531377a7695699.gif`} alt="loading..."/>
                 </div> : null}
