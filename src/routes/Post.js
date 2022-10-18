@@ -7,6 +7,7 @@ import {
    } from 'react-router-dom'; // 이건 6에서만 쓸 수 있는건가보다
 import { useState } from "react";
 import { data, gogo } from '../data';
+import PostDetail from '../components/PostDetail';
 // 코드 길어지면 import export 강의
 const Post = () => {
     // 일단 서버에서 가져온 데이터
@@ -21,39 +22,38 @@ const Post = () => {
     let navigate = useNavigate();
     return(
         <div>
-            <img style={{width: '100%', height: '200px', objectFit:'contain', background: 'lightgray'}} 
-            src={process.env.PUBLIC_URL + `/img/1a04cafd9593925989a9589cc4531377a7695699.gif`} alt=""/>
-            <div style={{margin:'20px'}}>
-                <h1 style={{marginBottom: '10px'}}>글을 작성해주세요.</h1>
+            <img className="post-main-img" src={process.env.PUBLIC_URL + `/img/1a04cafd9593925989a9589cc4531377a7695699.gif`} alt="포스트 메인 짱구 이미지"/>
+            <Outlet/>
+
+            <Link to={'/post/postdetail'}>postdetail 왜 안나오는지 모르겠지만.. 일단 주소로 이동</Link>
+            <div className="post-inner">
+                <h1>글을 작성해주세요.</h1>
                 <input onChange={(e) => {
                     setTitle(e.target.value);
                     // e.target 은 event가 발생하는 곳
                 }} value={title} placeholder="입력해보시오."/>
-                <div className="img-item">
-                    <div style={{display: 'flex', justifyContent:'space-around'}}>
-                        {/* 이미지 클릭시 /detail/:index 로 이동 */}
-                    {img.map((value, idx) => 
-                        <img key={idx} src={process.env.PUBLIC_URL + `/img/${value}.jpg`} alt="짱구이미지"/>
-                    )}
-                    </div>
-                    <ImgBox img={img} item={item} navigate={navigate}/>
-                </div>
+                <ImgBox img={img} item={item} navigate={navigate}/>
             </div>
+
+            <Routes>
+                <Route path={`/postdetail/:id`} element={<PostDetail img={img} item={item} />} /> 
+            </Routes>
+            {/* page 여러개 만들고 싶을 때 url 파라미터 사용 */}
         </div>
     )
 }
-const ImgBox = ({item, navigate}) => {
+const ImgBox = ({img, item, navigate}) => {
     return(
-        <div style={{display:'flex', justifyContent: 'space-between'}}>
-            {item.map((value, idx) => 
-                <div style={{width: '100%', textAlign:'center'}}>
-                    {/* 오 navigate 굿👍 */}
-                    {/* navigate(1) --> 앞으로 한 페이지 이동 */}
-                    {/* navigate(-1) --> 뒤로 한 페이지 이동 */}
-                    <p onClick={() => {navigate(`/postdetail:[${idx}]`)}}>{value.id}. {value.title}</p>
-                    <p>{value.content}</p>
-                    <p>{value.price}</p>
+        <div className="img-box">
+            {img.map((img, idx) => 
+            <div className="img-inner">
+                <img key={idx} src={process.env.PUBLIC_URL + `/img/${img}.jpg`} alt={idx}/>
+                <div className="img-box-text" key={item.id}>
+                    <p onClick={() => navigate(`postdetail/${idx}`)}>{item[idx].title}</p>
+                    <p>{item[idx].content}</p>
+                    <p>{item[idx].price}</p>
                 </div>
+            </div>
             )}
         </div>
     )
@@ -71,5 +71,9 @@ state 변경함수는 늦게 처리됨 --> 비동기처리
 이벤트 핸들러 약 30개 정도
 onMouseOver - 마우스 갖다 댔을 때
 onScroll - 스크롤바를 조작할 때 마다
+
+navigate 굿👍
+navigate(1) --> 앞으로 한 페이지 이동
+navigate(-1) --> 뒤로 한 페이지 이동
 
 */

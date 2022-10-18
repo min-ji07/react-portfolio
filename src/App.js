@@ -11,6 +11,7 @@ import Study from './routes/Study';
 import Arr from './routes/Arr';
 import Post from './routes/Post';
 import Hook from './components/Hook';
+import PostDetail from './components/PostDetail';
 
 // https://leejeongmin.vercel.app/ 참고
 
@@ -20,7 +21,9 @@ function App() {
       <Routes>
         <Route path="/arr" element={<Arr/>} />
         <Route path="/aboutme" element={<AboutMe/>} />
-        <Route path="/project" element={<Post/>} />
+        <Route path="/post/*" element={<Post/>}>
+          <Route Path={"postdetail"} element={<PostDetail/>} />
+        </Route>
         <Route path="/guestbook" element={<GuestBook/>} />
         <Route path="/study" element={<Study />}>
           {/* 페이지 안에 둘 다 보여줌 */}

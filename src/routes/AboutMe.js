@@ -231,12 +231,13 @@ const Memo = ({memo}) => {
                 show hide 버튼값은 어떻게 넘기는 법 / value, setValue, onClick
                 </li>
                 <li>
-                Route -> aboutMe -> todolist 로 가는방법 알아보기
+                    Btn 컴포넌트 클릭시 onClick 사용 가능하게 하기(컴포넌트로 함수사용) aboutMe 81 / 121-124
                 </li>
                 <li>
-                    <a href="https://codingapple.com/course/react-basic/">
-                https://codingapple.com/course/react-basic/
-                    </a>
+                    Memo컴포넌트로 onClick, memo state 보내서 닫기 버튼 클릭시 닫히게 하기 174
+                </li>
+                <li>
+                👍 Route -> aboutMe -> todolist 로 가는방법 알아보기(App.js 참고)
                 </li>
                 <li>
                     메모 기능 구현(todo-list)
@@ -253,13 +254,12 @@ const Memo = ({memo}) => {
                 👍 배열 객체 관련 클릭시 해당 요소 key 값 가져오는 법 50 --> 89~107
                 </li>
                 <li>
-                    Btn 컴포넌트 클릭시 onClick 사용 가능하게 하기(컴포넌트로 함수사용) aboutMe 81 / 121-124
-                </li>
-                <li>
-                    Memo컴포넌트로 onClick, memo state 보내서 닫기 버튼 클릭시 닫히게 하기 174
-                </li>
-                <li>
                 방명록 입력 시간 띄우기, 근데 다 같이 바뀜..(GuestBook 25)
+                </li>
+                <li>
+                    <a href="https://codingapple.com/course/react-basic/">
+                    👍 애플코딩 주소 https://codingapple.com/course/react-basic/
+                    </a>
                 </li>
                 <li>
                 </li>

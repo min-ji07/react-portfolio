@@ -213,24 +213,66 @@ header ul li{
 
 
 /* post */
-.img-item{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-top: 10px;
-}
-.img-item img{
-    max-width: 250px;
+.post-main-img{
     width: 100%;
     height: 200px;
-    object-fit: cover;
+    object-fit: contain;
+    background: lightseagreen;
+}
+.post-inner{
+    margin: 20px;
+    min-height: 500px;
+}
+.post-inner h1{
+    margin-bottom: 10px;
+}
+.img-box{
+    display: grid;
+    width: 100%;
+    text-align: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 300px;
+    grid-gap: 10px
+}
+.img-inner{
+    text-align: center;
+}
+.img-box .img-inner > img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.img-box-text{
+    margin-bottom: 1rem;
+}
+.img-box-text p {
+    margin-bottom: 10px;
 }
 @media (max-width: 760px){
-    .img-item{
-        display: block;
+    .img-box{
+        display: inline-block;
     }
-    .img-item img{
-        max-width: 100%;
-        height: auto;
+    .img-inner{
+        width: 70%;
+        margin: 0 auto;
     }
+    .img-box-text{
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+    }
+}
+/* post detail */
+.img-detail{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+.img-detail > div{
+    width: 500px;
+    height: 500px;
+}
+.img-detail div > img {
+    width: 100%;
+    height: 100%;
 }

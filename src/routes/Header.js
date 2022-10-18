@@ -7,7 +7,7 @@ function Header(){
             <ul style={{display:'flex'}}>
                 <li><Link to={'/arr'}>arr</Link></li>
                 <li><Link to={'/aboutme'}>about me</Link></li>
-                <li><Link to={'/project'}>project</Link></li>
+                <li><Link to={'/post'}>project</Link></li>
                 <li><Link to={'/study'}>study</Link></li>
                 <li>contact</li>
                 <li><Link to={'/guestbook'}>방명록</Link></li>
