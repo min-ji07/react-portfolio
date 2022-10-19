@@ -120,7 +120,16 @@ header ul li{
     margin: 20px 3rem 0;
 }
 
-
+.btn{
+    appearance: none;
+    border: none;
+    padding: 4px;
+    /* width: 200px; */
+    border-radius: 10px;
+    font-family: 'CookieRun Bold';
+    font-size: 20px;
+    background: lightcoral;
+}
 
 
 /* about me */
@@ -282,6 +291,22 @@ header ul li{
 .img-detail div > img {
     width: 100%;
     height: 100%;
+}
+
+/* contact, cart */
+.cart-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin: 10px 30px;
+}
+.cart-grid > div{
+    border-top: 1px solid lightgray;
+    border-left: 1px solid lightgray;
+    height: 40px;
+    padding: 6px;
+}
+.cart-grid > div:nth-child(4n){
+    border-right: 1px solid lightgray;
 }
 
 /* ani */

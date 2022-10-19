@@ -12,12 +12,16 @@ import Arr from './routes/Arr';
 import Post from './routes/Post';
 import Hook from './components/Hook';
 import PostDetail from './components/PostDetail';
+import Contact from './routes/Contact';
+import Header from './routes/Header';
+import Footer from './routes/Footer';
 
 // https://leejeongmin.vercel.app/ 참고
 
 function App() {
   return (
     <Router>
+      <Header/>
       <Routes>
         <Route path="/arr" element={<Arr/>} />
         <Route path="/aboutme" element={<AboutMe/>} />
@@ -32,11 +36,14 @@ function App() {
             <Route path="two" element={<div>생일기념 쿠폰받기</div>} />
           </Route>
         </Route>
+        <Route path="/contact" element={<Contact />} />
         {/* 왜 그런건지 아직 모르겠지만 / 를 제일 밑으로 */}
         <Route path="/" element={<Home />} />
+        <Route path="/react-portfolio" element={<Home />} />
         {/* 위에 route 제외 오타 포함 모든 것 */}
         <Route path="*" element={<div>4 0 4</div>} />
       </Routes>
+      <Footer/>
     </Router>
   );
 }

@@ -1,6 +1,4 @@
 import Btn from "../components/Btn";
-import Header from "./Header";
-import Footer from "./Footer";
 import "../css/common.css";
 import { useEffect, useRef, useState } from "react";
 
@@ -70,7 +68,6 @@ function Home(){
 
     return(
         <div id="random_bg" className="wrap">
-            <Header/>
             <div className="inner_wrap">
                 <img src={process.env.PUBLIC_URL + `/img/jjanggu.jpg`} alt="" style={{width: '100px',height: '100px'}}/>
                 <br/>
@@ -114,6 +111,13 @@ function Home(){
                 
                 */}
                 <br/>
+                <br/>
+                <p>Context API --> 크게 잘 안씀</p>
+                <p>Redux 사용 --> 많이 사용</p>
+                <p>redux사용시 js파일에 state 보관</p>
+                <p>컴포넌트 들이 해당js 파일에서 state를 가져다 사용함</p>
+                <p className="ft_red">npm install @reduxjs/toolkit react-redux</p>
+                <br/>
                 <Btn text={'왜 만들어놓은 버튼이지? '}  border="white"/>
                 <p>{ref.current}</p>
                 <div>
@@ -139,7 +143,6 @@ function Home(){
 
                 </p>
             </div>
-            <Footer/>
         </div>
     )
 }
