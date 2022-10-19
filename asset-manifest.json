@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/react-portfolio/static/css/main.9c981379.css",
-    "main.js": "/react-portfolio/static/js/main.34665e5c.js",
+    "main.css": "/react-portfolio/static/css/main.e05622d1.css",
+    "main.js": "/react-portfolio/static/js/main.adb646aa.js",
     "static/js/787.d6d23156.chunk.js": "/react-portfolio/static/js/787.d6d23156.chunk.js",
     "static/media/CookieRun Bold.ttf": "/react-portfolio/static/media/CookieRun Bold.07162854e5b0889acf82.ttf",
     "index.html": "/react-portfolio/index.html",
-    "main.9c981379.css.map": "/react-portfolio/static/css/main.9c981379.css.map",
-    "main.34665e5c.js.map": "/react-portfolio/static/js/main.34665e5c.js.map",
+    "main.e05622d1.css.map": "/react-portfolio/static/css/main.e05622d1.css.map",
+    "main.adb646aa.js.map": "/react-portfolio/static/js/main.adb646aa.js.map",
     "787.d6d23156.chunk.js.map": "/react-portfolio/static/js/787.d6d23156.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9c981379.css",
-    "static/js/main.34665e5c.js"
+    "static/css/main.e05622d1.css",
+    "static/js/main.adb646aa.js"
   ]
 }
