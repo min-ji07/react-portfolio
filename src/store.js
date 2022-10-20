@@ -156,10 +156,10 @@ let shopItem = createSlice({
 })
 export let {shopAddItem, shopDeleteItem, allDeleteItem} = shopItem.actions;
 
-// 열고 닫기도 되나
+// 열고 닫기
 let close = createSlice({
     name: 'close',
-    initialState: true,
+    initialState: false,
     reducers: {
         btnSwitch(state, action){
             return action.payload;
@@ -167,6 +167,16 @@ let close = createSlice({
     }
 })
 export let {btnSwitch} = close.actions;
+
+// todoList
+let todoList = createSlice({
+    name: 'todoList',
+    initialState: [],
+    reducer: {
+
+    }
+})
+
 
 export default configureStore({
     // 위에 state값을 입력 후 여기 등록해줘야 사용가능
@@ -182,6 +192,7 @@ export default configureStore({
         cartItemDetail: cartItemDetail.reducer,
         shopItem: shopItem.reducer,
         close: close.reducer,
+        todoList: todoList.reducer,
     }
 })
 

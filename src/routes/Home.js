@@ -80,6 +80,8 @@ function Home(){
                 <p>번호 : 01045811897</p>
                 <p>주소 : 서울시 마포구</p>
                 <a href="https://github.com/min-ji07">깃 주소 : https://github.com/min-ji07</a>
+                <br/>
+                <p style={{fontSize: '30px'}}>여기 내 자기소개 관련 about me 작성해야할 듯</p>
                 {/* 
                     
                     자기소개 관련

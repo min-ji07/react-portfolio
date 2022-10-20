@@ -5,9 +5,10 @@ function Header(){
         <header>
             <h1 className="logo"><Link to={'/'}>Dust Portfolio</Link></h1>
             <ul style={{display:'flex'}}>
-                <li><Link to={'/shop'}>shop</Link></li>
-                <li><Link to={'/arr'}>arr</Link></li>
+                {/* <li><Link to={'/arr'}>arr</Link></li> */}
                 <li><Link to={'/aboutme'}>about me</Link></li>
+                <li><Link to={'/todolist'}>TodoList</Link></li>
+                <li><Link to={'/shop'}>shop</Link></li>
                 <li><Link to={'/post'}>project</Link></li>
                 <li><Link to={'/study'}>study</Link></li>
                 <li><Link to={'/contact'}>contact</Link></li>

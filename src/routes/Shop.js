@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, Routes, Route } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ShopBasket from "../components/ShopBasket";
 import { btnSwitch, shopAddItem } from '../store';
+import MoreBtn from '../components/MoreBtn';
 
 const Shop = () => {
     let state = useSelector((state) => {return state});

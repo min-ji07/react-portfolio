@@ -1,8 +1,7 @@
 import {createSlice} from '@reduxjs/toolkit'
 
 // 변수가 너무 길어서 보기 힘들 때 파일 분할
-
-// 추가 된 데이터
+// 상품 더보기 눌렀을 때 값 더할라고 했는데 오류나서 일단 import 안함
 let shopImg = createSlice({
     name: 'shopImg',
     initialState: [
@@ -139,9 +138,7 @@ let shopImg = createSlice({
             price: 6000,
             count: 1
         },
-
-    ]
-})
-// 짧지만 임시로 옮겨둠
+    ],
+});
 
 export default shopImg;

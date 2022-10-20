@@ -13,11 +13,14 @@ import Shop from './routes/Shop';
 import Post from './routes/Post';
 import Hook from './components/Hook';
 import PostDetail from './components/PostDetail';
+import Write from './components/Write';
 import Contact from './routes/Contact';
 import Header from './routes/Header';
 import Footer from './routes/Footer';
 import ShopDetail from './routes/ShopDetail';
 import Cart from './routes/Cart';
+import TodoList from './routes/TodoList';
+
 
 // https://leejeongmin.vercel.app/ 참고
 
@@ -26,6 +29,7 @@ function App() {
     <Router>
       <Header/>
       <Routes>
+        <Route path="/todolist" element={<TodoList/>} />
         <Route path="/shop" element={<Shop/>} />
         <Route path="/shop/shopdetail/:id" element={<ShopDetail/>} />
         <Route path="/cart" element={<Cart/>} />
@@ -35,13 +39,14 @@ function App() {
           <Route Path={"postdetail"} element={<PostDetail/>} />
         </Route>
         <Route path="/guestbook" element={<GuestBook/>} />
-        <Route path="/study" element={<Study />}>
+        <Route path="/study/*" element={<Study />}>
           {/* 페이지 안에 둘 다 보여줌 */}
           <Route path="hook" element={<Hook />}>
             <Route path="one" element={<div>첫 주문시 양배추즙 서비스</div>} />
             <Route path="two" element={<div>생일기념 쿠폰받기</div>} />
           </Route>
         </Route>
+        <Route path="/study/write" element={<Write />} />
         <Route path="/contact" element={<Contact />} />
         {/* 왜 그런건지 아직 모르겠지만 / 를 제일 밑으로 */}
         <Route path="/" element={<Home />} />

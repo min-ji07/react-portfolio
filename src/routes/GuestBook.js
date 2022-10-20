@@ -42,30 +42,28 @@ function GuestBook(){
     
     return(
         <div className="wrap">
-            <div className="inner_wrap">
-                <h2 style={{fontSize: '20px', marginBottom: '20px'}}>방명록 남기기</h2>
-                <form>
-                    <textarea placeholder="방명록을 입력해주세요!" value={content} onChange={onChange}>
+            <h2 style={{fontSize: '20px', marginBottom: '20px'}}>방명록 남기기</h2>
+            <form>
+                <textarea placeholder="방명록을 입력해주세요!" value={content} onChange={onChange}>
 
-                    </textarea>
-                    <input type="submit" value={"등록"} onClick={onClick}/>
-                </form>
-                <div>
-                    {save && (
-                        <ul>
-                            {arr.map((value, index) => 
-                            <li key={index} style={{display:'flex', justifyContent:'space-between', border: '1px solid black', width: '500px', height: '100px', marginTop: '20px', padding: '16px'}}>
-                                <div>
-                                    {value} 
-                                </div>
-                                <div>
-                                    {hours}:{minutes}
-                                </div>
-                            </li>
-                            )}
-                        </ul>
-                    )}
-                </div>
+                </textarea>
+                <input type="submit" value={"등록"} onClick={onClick}/>
+            </form>
+            <div>
+                {save && (
+                    <ul>
+                        {arr.map((value, index) => 
+                        <li key={index} style={{display:'flex', width: '100%', justifyContent:'space-between', border: '1px solid black', height: '150px', margin: 0, marginTop: '20px', padding: '16px'}}>
+                            <div style={{wordBreak:'break-all', overflowY: 'scroll', width:'calc(100% - 60px)'}}>
+                                {value} 
+                            </div>
+                            <div style={{maxWidth:'10%', width: '60px'}}>
+                                {hours}:{minutes}
+                            </div>
+                        </li>
+                        )}
+                    </ul>
+                )}
             </div>
         </div>
     )

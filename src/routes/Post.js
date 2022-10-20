@@ -128,8 +128,6 @@ const Post = () => {
         <div>
             <img className="post-main-img" src={process.env.PUBLIC_URL + `/img/2e7bac51f4d7d7f33379dae9ce79b0ec1c1773c4.gif`} alt="포스트 메인 짱구 이미지"/>
             <Outlet/>
-
-            <Link to={'/post/postdetail'}>postdetail 왜 안나오는지 모르겠지만.. 일단 주소로 이동</Link>
             <div className="post-inner">
                 <h1>글을 작성해주세요.</h1>
                 <input onChange={(e) => setTitle(e.target.value)} value={title} placeholder="입력해보시오."/>
