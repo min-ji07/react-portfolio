@@ -34,7 +34,7 @@ const PostDetail = ({img, item}) => {
     // console.log(id);
     // find() --> 만족하는 첫 번째 요소의 값을 반환 없다면 undefined 반환
     let value = item.find((item) => item.id == id);
-    // console.log(value);
+    console.log(value);
 
     return(
         <div className="img-inner">
@@ -45,6 +45,7 @@ const PostDetail = ({img, item}) => {
                 <p>{item[id].content}</p>
                 <p>{item[id].price}</p>
             </div>
+            <button>장바구니 추가</button>
             {autoHide ? <div style={{background: 'Yellow', width: '200px', height: '30px', margin: '0 auto'}}>3초후에 사라질 박스</div> : null }
         </div>
     )

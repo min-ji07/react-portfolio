@@ -183,10 +183,7 @@ function AboutMe(){
             {/* <Btn text={'메모열기/닫기'} setBtnShow={setBtnShow}/> */}
             {memo ? null : <Memo memo={memo}/>}
             {/* 이거 뭔가 이상한데..? */}
-            {tab === 1 ? 
-                <div>
-                    tab 2번
-                </div> : null}
+            {tab === 1 && <div>tab 2번</div>}
         </>
     )
 }

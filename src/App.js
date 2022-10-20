@@ -9,12 +9,15 @@ import GuestBook from './routes/GuestBook';
 import Home from './routes/Home';
 import Study from './routes/Study';
 import Arr from './routes/Arr';
+import Shop from './routes/Shop';
 import Post from './routes/Post';
 import Hook from './components/Hook';
 import PostDetail from './components/PostDetail';
 import Contact from './routes/Contact';
 import Header from './routes/Header';
 import Footer from './routes/Footer';
+import ShopDetail from './routes/ShopDetail';
+import Cart from './routes/Cart';
 
 // https://leejeongmin.vercel.app/ 참고
 
@@ -23,6 +26,9 @@ function App() {
     <Router>
       <Header/>
       <Routes>
+        <Route path="/shop" element={<Shop/>} />
+        <Route path="/shop/shopdetail/:id" element={<ShopDetail/>} />
+        <Route path="/cart" element={<Cart/>} />
         <Route path="/arr" element={<Arr/>} />
         <Route path="/aboutme" element={<AboutMe/>} />
         <Route path="/post/*" element={<Post/>}>

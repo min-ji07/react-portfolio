@@ -51,8 +51,7 @@ function GuestBook(){
                     <input type="submit" value={"등록"} onClick={onClick}/>
                 </form>
                 <div>
-                    {
-                        save ?  (
+                    {save && (
                         <ul>
                             {arr.map((value, index) => 
                             <li key={index} style={{display:'flex', justifyContent:'space-between', border: '1px solid black', width: '500px', height: '100px', marginTop: '20px', padding: '16px'}}>
@@ -65,8 +64,7 @@ function GuestBook(){
                             </li>
                             )}
                         </ul>
-                        ) : null
-                    }
+                    )}
                 </div>
             </div>
         </div>
