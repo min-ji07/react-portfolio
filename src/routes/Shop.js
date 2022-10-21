@@ -1,13 +1,23 @@
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import ShopBasket from "../components/ShopBasket";
 import { btnSwitch, shopAddItem } from '../store';
-import MoreBtn from '../components/MoreBtn';
 
 const Shop = () => {
     let state = useSelector((state) => {return state});
     let dispatch = useDispatch();
     let navigate = useNavigate();
+
+    useEffect(() => {
+        let arr = localStorage.getItem("itemId");
+        arr = JSON.parse(arr);
+        if(Array.isArray(arr)){
+            return
+        }else{
+            localStorage.setItem("itemId", JSON.stringify([]))
+        }
+    },[])
 
     return(
         <>
@@ -16,7 +26,9 @@ const Shop = () => {
                 <div className="shop-grid">
                     {state.shopImg.map((value, idx) => 
                     <div key={idx}>
-                        <div onClick={() => navigate(`shopdetail/${idx}`)} className="img-div">
+                        <div onClick={() => {
+                            navigate(`shopdetail/${idx}`);
+                        }} className="img-div">
                             <img className="shop-item-img" src={process.env.PUBLIC_URL + `/img/${value.src}.jpg`} alt="상품이미지" />
                         </div>
                         <p  onClick={() => navigate(`shopdetail/${idx}`)}>{value.name}</p>

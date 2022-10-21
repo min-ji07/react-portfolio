@@ -1,6 +1,7 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 const TodoList = () => {
+    // const [saveTodo, setSaveTodo] = useState();
     const [todoList, setTodoList] = useState([]);
     const inputValue = useRef();
     const onKeyPress = (e) => {
@@ -13,7 +14,15 @@ const TodoList = () => {
         }
     }
     localStorage.setItem("todoList", JSON.stringify(todoList));
-    console.log(todoList);
+    let todo = localStorage.getItem("todoList");
+    if(todo === undefined){
+        console.log('todoList값이 없습니다.')
+    }else{
+        console.log('값이 있습니다')
+        // const save = localStorage.getItem("todoList");
+        // let saveTodo = JSON.parse(save);
+        // setTodoList(saveTodo);
+    }
     return(
         <div className="wrap">
             <h1 style={{marginBottom:'20px'}}>일정을 기록하세요!</h1>

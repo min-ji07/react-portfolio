@@ -151,7 +151,7 @@ let shopItem = createSlice({
         },
         allDeleteItem(state){
             return state = [];
-        }
+        },
     }
 })
 export let {shopAddItem, shopDeleteItem, allDeleteItem} = shopItem.actions;
