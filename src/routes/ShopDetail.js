@@ -20,8 +20,6 @@ const ShopDetail = () => {
         localStorage.setItem("itemId", JSON.stringify(getItem));
     });
 
-
-
     return(
         <div className="wrap">
             <div style={{width: '500px', height:'500px', margin: '0 auto'}}>

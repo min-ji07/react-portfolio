@@ -5,13 +5,19 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import store from './store';
+// react-query (실시간 데이터 가져올 때 유용함)
+import { QueryClient, QueryClientProvider } from 'react-query';
 
+const queryClient = new QueryClient() 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  // Provider 요거때매 오류나네
-  <Provider store={store}>
-    <App />
-  </Provider>
+  // react-query
+  <QueryClientProvider client={queryClient}>
+    {/* store(react-redux) */}
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </QueryClientProvider>
     // {/* <React.StrictMode> */}
     // {/* </React.StrictMode> */}
 );
