@@ -3,6 +3,7 @@ import {
   Routes,
   Route
  } from 'react-router-dom';
+import { useSelector } from "react-redux";
 import './App.css';
 import AboutMe from './routes/AboutMe';
 import GuestBook from './routes/GuestBook';
@@ -20,13 +21,17 @@ import Footer from './routes/Footer';
 import ShopDetail from './routes/ShopDetail';
 import Cart from './routes/Cart';
 import TodoList from './routes/TodoList';
+import Modal from './components/Modal';
+import Index from './routes/Index';
 
 
 // https://leejeongmin.vercel.app/ 참고
 
 function App() {
+  let state = useSelector((state) => {return state.headerMenu});
   return (
     <Router>
+      {state && <Modal/>}
       <Header/>
       <Routes>
         <Route path="/todolist" element={<TodoList/>} />
@@ -49,7 +54,8 @@ function App() {
         <Route path="/study/write" element={<Write />} />
         <Route path="/contact" element={<Contact />} />
         {/* 왜 그런건지 아직 모르겠지만 / 를 제일 밑으로 */}
-        <Route path="/" element={<Home />} />
+        {/* <Route path="/" element={<Home />} /> */}
+        <Route path="/" element={<Index />} />
         <Route path="/react-portfolio" element={<Home />} />
         {/* 위에 route 제외 오타 포함 모든 것 */}
         <Route path="*" element={<div>4 0 4</div>} />
@@ -58,7 +64,6 @@ function App() {
     </Router>
   );
 }
-
 export default App;
 
 /*

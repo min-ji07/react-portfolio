@@ -1,4 +1,4 @@
-import {configureStore, createSlice} from '@reduxjs/toolkit';
+import {bindActionCreators, configureStore, createSlice} from '@reduxjs/toolkit';
 // 파일 분할해서 가져오기 
 import stock from './store/stockSlick'
 import shopImg from './store/shopImgSlick'
@@ -177,6 +177,24 @@ let todoList = createSlice({
     }
 })
 
+// header menu 클릭시 모달창 띄우기
+let headerMenu = createSlice({
+    name: 'headerMenu',
+    initialState: false,
+    reducers: {
+        modalOpen(state, action){
+            const body = document.querySelector('body');
+            if(action.payload){
+                body.classList.add('body-hide');
+            }else{
+                body.classList.remove('body-hide');
+            }
+            return action.payload;
+        }
+    }
+})
+export let { modalOpen } = headerMenu.actions;
+
 
 export default configureStore({
     // 위에 state값을 입력 후 여기 등록해줘야 사용가능
@@ -193,6 +211,7 @@ export default configureStore({
         shopItem: shopItem.reducer,
         close: close.reducer,
         todoList: todoList.reducer,
+        headerMenu: headerMenu.reducer,
     }
 })
 

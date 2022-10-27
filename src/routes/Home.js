@@ -1,5 +1,6 @@
 import Btn from "../components/Btn";
 import "../css/common.css";
+import "../css/common_mobile.css";
 import { useEffect, useRef, useState } from "react";
 
 function Home(){

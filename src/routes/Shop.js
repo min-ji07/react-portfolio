@@ -21,8 +21,8 @@ const Shop = () => {
 
     return(
         <>
-            <img className="post-main-img" src={process.env.PUBLIC_URL + `/img/2e7bac51f4d7d7f33379dae9ce79b0ec1c1773c4.gif`} alt="포스트 메인 짱구 이미지"/>
             <div className="wrap">
+            <img className="post-main-img" src={process.env.PUBLIC_URL + `/img/2e7bac51f4d7d7f33379dae9ce79b0ec1c1773c4.gif`} alt="포스트 메인 짱구 이미지"/>
                 <div className="shop-grid">
                     {state.shopImg.map((value, idx) => 
                     <div key={idx}>
