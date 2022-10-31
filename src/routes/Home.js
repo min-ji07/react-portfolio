@@ -82,7 +82,7 @@ function Home(){
                 <p>주소 : 서울시 마포구</p>
                 <a href="https://github.com/min-ji07">깃 주소 : https://github.com/min-ji07</a>
                 <br/>
-                <p style={{fontSize: '30px'}}>여기 내 자기소개 관련 about me 작성해야할 듯</p>
+                <p style={{fontSize: '30px'}}>여기 내 자기소개 관련 about me 작성하기</p>
                 <p>redux-persist</p>
                 <p>store에 있는 모든 state를 localStorage에 저장</p>
                 {/* 

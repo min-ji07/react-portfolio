@@ -15,7 +15,7 @@ const Index = () => {
                     <div>
                         <ul>
                             <li>
-                                <a href="mailto: 86297534@naver.com">✉ email : 86297534@naver.com</a><br/>
+                                <a href="mailto: 86297534@naver.com">✉ email : 86297534@naver.com</a>
                             </li>
                             <li>
                                 <a href="tel: 010-4581-1897">🎈 번호 : 010-4581-1897</a>
@@ -107,32 +107,78 @@ const Index = () => {
                         반응형 웹사이트
                     */}
                     <div>
-                        <a href="https://www.hongcafe.com/">
-                            <img src={process.env.PUBLIC_URL + `/img/project1.png`} alt="사진"/>
+                        <a href="#">
+                            <img src={process.env.PUBLIC_URL + `/img/dfaf657304f2816b514692d36e761f7440f4d531.jpg`} alt="사진"/>
                         </a>
+                        <div className="project-content">
+                            <p>React 포트폴리오</p>
+                            <p>
+                                <span className="react">React</span>
+                                <span className="js">Javascript</span>
+                                <span className="html">html5</span>
+                                <span className="css">css3</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <a href="https://www.hongcafe.com/" >
+                            <img src={process.env.PUBLIC_URL + `/img/project1.PNG`} alt="사진"/>
+                        </a>
+                        <div className="project-content">
+                            <p>반응형 웹 사이트 퍼블리싱</p>
+                            <p>
+                                <span className="js">Javascript</span>
+                                <span className="jquery">jquery</span>
+                                <span className="html">html5</span>
+                                <span className="css">css3</span>
+                            </p>
+                        </div>
                     </div>
                     <div>
                         <a href="https://www.hongstore.com/">
-                            <img src={process.env.PUBLIC_URL + `/img/project2.png`} alt="사진"/>
+                            <img src={process.env.PUBLIC_URL + `/img/project2.PNG`} alt="사진"/>
                         </a>
+                        <div className="project-content">
+                            <p>반응형 웹 사이트 퍼블리싱</p>
+                            <p>
+                                <span className="js">Javascript</span>
+                                <span className="jquery">jquery</span>
+                                <span className="html">html5</span>
+                                <span className="css">css3</span>
+                            </p>
+                        </div>
                     </div>
                     <div>
                         <a href="https://vfriends.co/ko">
-                            <img src={process.env.PUBLIC_URL + `/img/project3.png`} alt="사진"/>
+                            <img src={process.env.PUBLIC_URL + `/img/project3.PNG`} alt="사진"/>
                         </a>
+                        <div className="project-content">
+                            <p>반응형 웹 사이트 퍼블리싱, 앱 컴포넌트 개발</p>
+                            <p>
+                                <span className="rn">React-native</span>
+                                <span className="js">Javascript</span>
+                                <span className="jquery">jquery</span>
+                                <span className="html">html5</span>
+                                <span className="css">css3</span>
+                            </p>
+                        </div>
                     </div>
                     <div>
                         <a href="https://bamletter.co/">
-                            <img src={process.env.PUBLIC_URL + `/img/project4.png`} alt="사진"/>
+                            <img src={process.env.PUBLIC_URL + `/img/project4.PNG`} alt="사진"/>
                         </a>
+                        <div className="project-content">
+                            <p>반응형 웹 사이트 퍼블리싱</p>
+                            <p>
+                                <span className="js">Javascript</span>
+                                <span className="jquery">jquery</span>
+                                <span className="html">html5</span>
+                                <span className="css">css3</span>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </section>
-            {/* 탑으로 올라가는 버튼 만들기, 한 50%정도 내려왔을 때 스르륵 생기게 */}
-            <div className="top-btn">
-                <p>위로 올라가요!</p>
-                <img src={process.env.PUBLIC_URL + `/img/aa5923ee18f6af042f4fb0c03d7e6e83822ceda4.gif`} alt="위로 올라가요!"/>
-            </div>
         </div>
     )
 }

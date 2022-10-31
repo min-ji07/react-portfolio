@@ -92,6 +92,12 @@ form input[type='submit']{
     padding: 6px;
     font-size: 18px;
 }
+*:not(html,body)::-webkit-scrollbar {
+    width: 2px;
+}
+*:not(html,body)::-webkit-scrollbar-thumb{
+    background: lightgray;
+}
 #root{
     position: relative;
     min-height: 100%;
@@ -106,15 +112,26 @@ form input[type='submit']{
 .body-hide{
     overflow: hidden;
 }
-
-
+.text-sort{
+    height: 2.1rem;
+    overflow: hidden;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.next-btn{
+    color: black;
+}
 
 header{
     position: fixed;
     width: 100%;
     height: 80px;
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
+    justify-content: space-between;
     align-items: center;
     background-color: white;
     border-bottom: 1px solid lightgray;
@@ -135,12 +152,46 @@ footer{
     position: fixed;
     bottom: 0;
 }
-
+/* dark 모드 관련 */
+.dark header,
+.dark {
+    background: rgba(0, 0, 12);
+}
+.dark h1,
+.dark h2,
+.dark a,
+.dark ul li,
+.dark header #mobile-menu,
+.dark .my-info,
+.dark section .project .project-content,
+.dark .shop-grid > div,
+.dark .detail-item-title,
+.dark .detail-item-content,
+.dark .shop-info,
+.dark .cart-grid,
+.dark .next-btn{
+    color:  white;
+}
+.dark .my-photo{
+    box-shadow: 1px 1px 8px 3px white;
+}
+.dark-mode{
+    display: inline-block;
+    width: auto;
+    font-size: 13px;
+    background: lightgray;
+    padding: 2px;
+    border-radius: 4px;
+    vertical-align: middle;
+    margin-left: 10px;
+    color: black;
+}
 /*  */
 .wrap{
     /* width: 80%; */
     /* width: 1280px; */
     max-width: 900px;
+    width: 100%;
     margin: 120px auto 0;
     height: 100%;
     display: flex;
@@ -232,6 +283,7 @@ section ul li p span{
     padding: 3px 10px;
     border-radius: 4px;
     margin-right: 9px;
+    color: black;
 }
 section .project{
     display: grid;
@@ -242,10 +294,46 @@ section .project{
 }
 section .project > div {
     width: 100%;
-    height: 250px;
+    /* height: 250px; */
+    height: 300px;
     border-radius: 10px;
     overflow: hidden;
     transition: 1s;
+    border: 1px solid lightgray;
+}
+section .project > div > a{
+    display: block;
+    width: 100%;
+    height: 240px;
+}
+section .project .project-content{
+    display: flex;
+    padding: 6px;
+    height: 60px;
+    /* overflow-y: scroll; */
+    flex-direction: column;
+    justify-content: space-between;
+}
+section .project .project-content span{
+    display: inline-block;
+    padding: 3px;
+    font-size: 14px;
+    background: lightseagreen;
+    margin-right: 6px;
+    border-radius: 6px;
+    color: black;
+}
+section .project .project-content .js{
+    background: lightcoral;
+}
+section .project .project-content .jquery{
+    background: coral;
+}
+section .project .project-content .html{
+    background: lightblue;
+}
+section .project .project-content .css{
+    background: #FAED7D;
 }
 section .project > div img {
     width: 100%;
@@ -264,7 +352,11 @@ section .project > div:hover{
     bottom: 20px;
     right: 20px;
     overflow: hidden;
+    opacity: 0;
     transition: 1s;
+}
+.top-btn.show{
+    opacity: 1;
 }
 .top-btn p{
     position: absolute;
@@ -280,11 +372,17 @@ section .project > div:hover{
     object-fit: cover;
 }
 /* shop */
+.shop-info{
+    margin-bottom: 10px;
+    color: black;
+    line-height: 1.2rem;
+}
 .shop-grid{
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-auto-rows: 380px;
+    /* grid-auto-rows: 380px; */
+    grid-auto-rows: 320px;
     grid-gap: 20px;
     margin: 0 auto;
 }
@@ -294,8 +392,7 @@ section .project > div:hover{
 }
 .shop-grid .img-div {
     height: 100%;
-    max-height: 300px;
-    /* max-height: 20.7088vw; */
+    max-height: 230px;
     margin-bottom: 6px;
 }
 .shop-grid .shop-item-img{
@@ -308,6 +405,59 @@ section .project > div:hover{
     padding: 6px;
     border-radius: 10px;
     margin-top: 4px;
+    font-family: 'CookieRun Bold';
+}
+/* shop detail */
+.detail-img-div{
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+}
+.detail-img-div img{
+    width: 100%;
+    height: 100%;
+    /* object-fit: contain; */
+    object-fit: cover;
+}
+.detail-item-title{
+    text-align: center;
+    margin-top: 20px;
+}
+.detail-item-content{
+    border: 1px solid lightgray;
+    width: 100%;
+    height: auto;
+    min-height: 200px;
+    margin-top: 30px;
+    line-height: 1rem;
+}
+/* cart, hop basket */
+.cart-avg{
+    grid-column: span 2;
+    background: lightgray;
+    color: black;
+}
+.m-shop-basket{
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    background: ivory;
+    overflow-y: scroll;
+    bottom: 20px;
+    right: 20px;
+    border: 1px solid lightgray;
+    padding: 10px;
+    z-index: 1;
+}
+.m-shop-basket .btn-set{
+    display: flex;
+    justify-content: space-between;
+}
+.m-shop-basket .cart-grid{
+    color: black;
+    margin: 10px 0 0;
+    grid-template-columns: 1fr .5fr .5fr .5fr;
+    background: lightgray;
 }
 
 
@@ -384,20 +534,85 @@ section .project > div:hover{
     padding: 6px;
     margin-left: 30px;
 }
-
+/* todo */
+.todo-bg{
+    background: antiquewhite;
+    flex: 1;
+    width: 800px;
+    margin: 20px auto 0;
+    padding: 0 20px;
+}
+.todo-bg ul li{
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid lightgray;
+}
+.todo-bg ul li.active p:first-child{
+    text-decoration: line-through;
+    color: gray;
+}
+.todo-bg ul li span{
+    margin-left: 10px;
+}
 
 /* study */
-.study-box{
+.study-box ul{
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px 10px;
+    flex-direction: column;
+    gap: 10px;
 }
-.study-box .box{
-    width: 32%;
-    height: 230px;
-    border: 1px solid black;
+.study-box ul li{
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100px;
+    border: 1px solid lightgray;
+    padding: 14px;
 }
-
+.dark .study-box ul li{
+    background: gray;
+    border: 0;
+}
+.dark .study-box ul li:hover{
+    box-shadow: 0px 0px 6px 3px lightyellow;
+}
+.study-box .content{
+    font-size: 18px;
+    color: gray;
+}
+.study-box .content span{
+    margin-right: 14px;
+}
+.dark .study-box .content span{
+    color: rgba(255, 255, 255, .7);
+}
+/* study detail */
+.study-box.detail{
+    line-height: 26px;
+    font-size: 1rem;
+}
+.study-box .study-detail-title{
+    padding-bottom: 20px;
+    border-bottom: 1px solid lightgray;
+    margin-bottom: 20px;
+}
+.study-box .study-detail-content{
+    min-height: 300px;
+}
+.study-box .study-detail-comment-write ul li{
+    display: block;
+    height: auto;
+    max-height: 100px;
+    border: 0;
+    border-bottom: 1px solid lightgray;
+    padding: 14px 0;
+}
+.study-box .study-detail-comment-write ul li span{
+    margin-right: 10px;
+}
 
 /* post */
 .post-main-img{

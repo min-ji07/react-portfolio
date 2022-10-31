@@ -14,7 +14,7 @@ import Shop from './routes/Shop';
 import Post from './routes/Post';
 import Hook from './components/Hook';
 import PostDetail from './components/PostDetail';
-import Write from './components/Write';
+import StudyDetail from './components/StudyDetail';
 import Contact from './routes/Contact';
 import Header from './routes/Header';
 import Footer from './routes/Footer';
@@ -35,7 +35,13 @@ function App() {
       <Header/>
       <Routes>
         <Route path="/todolist" element={<TodoList/>} />
-        <Route path="/shop" element={<Shop/>} />
+        <Route path="/shop" element={<Shop/>}>
+          {/* 페이지 안에 둘 다 보여줌 */}
+          <Route path="hook" element={<Hook />}>
+            <Route path="one" element={<div>첫 주문시 양배추즙 서비스</div>} />
+            <Route path="two" element={<div>생일기념 쿠폰받기</div>} />
+          </Route>
+        </Route>
         <Route path="/shop/shopdetail/:id" element={<ShopDetail/>} />
         <Route path="/cart" element={<Cart/>} />
         <Route path="/arr" element={<Arr/>} />
@@ -45,18 +51,17 @@ function App() {
         </Route>
         <Route path="/guestbook" element={<GuestBook/>} />
         <Route path="/study/*" element={<Study />}>
-          {/* 페이지 안에 둘 다 보여줌 */}
+          {/* 이거 나중에 수정 위에꺼랑 똑같음 */}
           <Route path="hook" element={<Hook />}>
             <Route path="one" element={<div>첫 주문시 양배추즙 서비스</div>} />
             <Route path="two" element={<div>생일기념 쿠폰받기</div>} />
           </Route>
         </Route>
-        <Route path="/study/write" element={<Write />} />
+        <Route path="/study/studydetail" element={<StudyDetail />} />
         <Route path="/contact" element={<Contact />} />
-        {/* 왜 그런건지 아직 모르겠지만 / 를 제일 밑으로 */}
         {/* <Route path="/" element={<Home />} /> */}
         <Route path="/" element={<Index />} />
-        <Route path="/react-portfolio" element={<Home />} />
+        <Route path="/react-portfolio" element={<Index />} />
         {/* 위에 route 제외 오타 포함 모든 것 */}
         <Route path="*" element={<div>4 0 4</div>} />
       </Routes>

@@ -10,12 +10,14 @@ const ShopBasket = () => {
 
     // console.log(state);
     return(
-        <div className="m-shop-basket" style={{overflowY: 'scroll', background:'ivory', position:'fixed', bottom:'50px', right: '40px', width: '400px', height: '400px', border:'1px solid gray'}}>
-            <button className="btn" onClick={() => {
-                dispatch(btnSwitch(false));
-            }} style={{textAlign: 'right'}}>🙏닫기🙏</button>
-            <button className="btn" onClick={() => navigate(`/cart`)}>👉장바구니로 이동👉</button>
-            <div className="cart-grid" style={{gridTemplateColumns: '1fr .5fr .5fr .5fr', background:'lightgray'}}>
+        <div className="m-shop-basket">
+            <div className="btn-set">
+                <button className="btn" onClick={() => navigate(`/cart`)}>👉장바구니로 이동👉</button>
+                <button className="btn" onClick={() => {
+                    dispatch(btnSwitch(false));
+                }}>🙏닫기🙏</button>
+            </div>
+            <div className="cart-grid">
                 <div>상품명</div>
                 <div>수량</div>
                 <div>추가</div>

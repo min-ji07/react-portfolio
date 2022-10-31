@@ -32,7 +32,7 @@ const Cart = () => {
                 ))}
                 {state.shopItem.length ?
                 <>
-                    <div style={{gridColumn: 'span 2', background:'lightgray'}}>총액</div>
+                    <div className="cart-avg">총액</div>
                     <div>{avg}</div>
                     <div onClick={() => {
                         dispatch(allDeleteItem());

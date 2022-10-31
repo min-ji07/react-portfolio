@@ -1,24 +1,34 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, RouterProvider } from "react-router-dom";
 import { modalOpen } from "../store";
 
 
 function Header(){
     let dispatch = useDispatch();
+    const root = document.getElementById('root');
+    const [dark, setDark] = useState(true);
     return(
         <header>
-            <Link to={'/'}><h1 className="logo">Dust</h1></Link>
+            <Link to={'/'}><h1 className="logo">Dust
+            <span className="dark-mode" onClick={(e) => {
+                // e.stopPropagation();
+                const click = e.currentTarget;
+                if(click === e.currentTarget){
+                    root.classList.toggle('dark');
+                    setDark(!dark);
+                }
+            }}>{dark ? '🌜모드' : '🌞모드'}</span></h1></Link>
             <ul>
                 {/* 메뉴는 총 5개로 만들것, home(dust), about, portfolio, 슬쩍보기(shop, todoList), github */}
                 {/* <li><Link to={'/arr'}>arr</Link></li> */}
-                <li><Link to={'/aboutme'}>about me</Link></li>
+                {/* <li><Link to={'/aboutme'}>about me</Link></li> */}
                 <li><Link to={'/todolist'}>TodoList</Link></li>
                 <li><Link to={'/shop'}>shop</Link></li>
-                <li><Link to={'/post'}>project</Link></li>
+                {/* <li><Link to={'/post'}>project</Link></li> */}
                 <li><Link to={'/study'}>study</Link></li>
-                <li><Link to={'/contact'}>contact</Link></li>
-                <li><Link to={'/guestbook'}>방명록</Link></li>
+                {/* <li><Link to={'/contact'}>contact</Link></li> */}
+                {/* <li><Link to={'/guestbook'}>방명록</Link></li> */}
             </ul>
             <div id="mobile-menu" onClick={() => {
                 dispatch(modalOpen(true));

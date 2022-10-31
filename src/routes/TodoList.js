@@ -46,18 +46,30 @@ const TodoList = () => {
     return(
         <div className="wrap">
             <div style={{display:'flex', justifyContent:'space-between'}}>
-                <h2>{result.data.name}님 안녕하세요!</h2>
+                {/* <h2>{result.data.name}님 안녕하세요!</h2> */}
                 <h1 style={{marginBottom:'20px'}}>일정을 기록하세요!</h1>
             </div>
-            <input type="text" placeholder="할일을 기록하는 습관을 들이세요!"
+            <input type="text" placeholder="ToDo List를 작성해보세요~!" style={{padding: '10px', height:'50px', fontSize: '18px'}}
             onKeyPress={onKeyPress} ref={inputValue}
              />
-             <div style={{background:'tomato', flex: 1}}>
+             <div className="todo-bg">
                 <ul>
+                    <li>
+                        <p>일정을 기록해보세요! 책 읽기, 공부하기, 취미생활하기</p>
+                        <p>
+                            <span>수정📝</span>
+                            <span>삭제💣</span>
+                            <span>완료🤗</span>
+                        </p>
+                    </li>
                     {todoList.map((value, idx) => 
-                        <li key={idx} style={{lineHeight:'30px', border:'1px solid black', display: 'flex', justifyContent:'space-between'}}>
-                            {value}
-                            <span>삭제하기</span>
+                        <li key={idx}>
+                            <p>{value}</p>
+                            <p>
+                                <span>수정📝</span>
+                                <span>삭제💣</span>
+                                <span>완료🤗</span>
+                            </p>
                         </li>
                     )}
                 </ul>
