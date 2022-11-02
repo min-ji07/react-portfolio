@@ -11,18 +11,17 @@ function Header(){
     return(
         <header>
             <div>
-                {/* 이거 되나 일단 확인 */}
-                <a href="https://min-ji07.github.io/react-portfolio/">
-                    <h1 className="logo">Dust
+                {/* a태그로 바꾸면 안됨 */}
+                <Link to={'/'}><h1 className="logo">Dust
                     <span className="dark-mode" onClick={(e) => {
-                        e.stopPropagation();
+                        e.preventDefault();
                         const click = e.currentTarget;
                         if(click === e.currentTarget){
                             root.classList.toggle('dark');
                             setDark(!dark);
                         }
                     }}>{dark ? '🌜모드' : '🌞모드'}</span></h1>
-                </a>
+                </Link>
                 <ul>
                     {/* 메뉴는 총 5개로 만들것, home(dust), about, shop, todoList, github */}
                     {/* <li><Link to={'/arr'}>arr</Link></li> */}
@@ -31,6 +30,7 @@ function Header(){
                     <li><Link to={'/shop'}>shop</Link></li>
                     {/* <li><Link to={'/post'}>project(삭)</Link></li> */}
                     <li><Link to={'/study'}>Board</Link></li>
+                    <li><a href="https://github.com/min-ji07">Github</a></li>
                     {/* <li><Link to={'/contact'}>contact</Link></li> */}
                     {/* <li><Link to={'/guestbook'}>방명록</Link></li> */}
                 </ul>

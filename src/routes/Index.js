@@ -1,5 +1,15 @@
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 const Index = () => {
+    let board = localStorage.getItem("BoardContent");
+    board = JSON.parse(board);
+    useEffect(() => {
+        if(board === null){
+            localStorage.setItem("BoardContent", JSON.stringify([]));
+        }else{
+            return
+        }
+    },[]);
     return(
         <div className="wrap">
             <section>

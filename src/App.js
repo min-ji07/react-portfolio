@@ -23,6 +23,7 @@ import Cart from './routes/Cart';
 import TodoList from './routes/TodoList';
 import Modal from './components/Modal';
 import Index from './routes/Index';
+import StudyWrite from './routes/StudyWrite';
 
 
 // https://leejeongmin.vercel.app/ 참고
@@ -50,14 +51,9 @@ function App() {
           <Route Path={"postdetail"} element={<PostDetail/>} />
         </Route>
         <Route path="/guestbook" element={<GuestBook/>} />
-        <Route path="/study/*" element={<Study />}>
-          {/* 이거 나중에 수정 위에꺼랑 똑같음 */}
-          <Route path="hook" element={<Hook />}>
-            <Route path="one" element={<div>첫 주문시 양배추즙 서비스</div>} />
-            <Route path="two" element={<div>생일기념 쿠폰받기</div>} />
-          </Route>
-        </Route>
-        <Route path="/study/studydetail" element={<StudyDetail />} />
+        <Route path="/study/*" element={<Study />}/>
+        <Route path="study/studywrite" element={<StudyWrite />}/>
+        <Route path="/study/studydetail/:id" element={<StudyDetail />} />
         <Route path="/contact" element={<Contact />} />
         {/* <Route path="/" element={<Home />} /> */}
         <Route path="/" element={<Index />} />

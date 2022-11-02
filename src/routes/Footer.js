@@ -2,9 +2,9 @@ function Footer(){
     window.addEventListener('scroll', function(){
         let scroll = window.scrollY;
         const topBtn = document.getElementById('topBtn');
-        if(scroll > 100){
+        if(scroll > 150){
             topBtn.classList.add('show');
-        }else if(scroll < 100){
+        }else if(scroll < 150){
             topBtn.classList.remove('show');
         }
     });

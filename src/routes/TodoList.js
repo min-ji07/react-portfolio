@@ -44,6 +44,7 @@ const TodoList = () => {
             }else{
                 // 배열에 입력된 값 추가, 객체 기본 값 추가
                 todo.unshift({text: todos, id: Date.now()});
+                // id: Date.now()
                 // 중복허용하지 않는 array자료형
                 todo = new Set(todo);
                 // 다시 array로 만들어주기
@@ -55,7 +56,7 @@ const TodoList = () => {
         }
     }
     // 삭제
-    const todoDelete = (idx) => {
+    const todoDelete = (idx, value) => {
         todo.splice(idx, 1);
         localStorage.setItem("todoList", JSON.stringify(todo));
         setTodoList(todo);
@@ -84,8 +85,8 @@ const TodoList = () => {
                     </li>
                     {/* checked 가 기존 html에 붙어있고 따라 옮겨지지않음 */}
                     {/* 새로고침시 완료처리 삭제됨 */}
-                    {todoList.map((value, idx) => 
-                        <li key={idx}>
+                    {/* {todoList.map((value, idx) => 
+                        <li key={value.id}>
                             <input id={value.id} type="checkbox"></input>
                             <label htmlFor={value.id}>
                                 <p>{value.text}</p>
@@ -93,9 +94,22 @@ const TodoList = () => {
                                     <span onClick={() => {
                                         alert('개발중인 기능입니다!');
                                     }}>수정📜</span>
-                                    <span onClick={(e) => todoDelete(idx)}>삭제💣</span>
+                                    <span onClick={(e) => todoDelete(idx, value)}>삭제💣</span>
                                 </p>
                             </label>
+                        </li>
+                    )} */}
+                    {todoList.map((value, idx) => 
+                        <li key={value.id} onClick={() => {
+                            console.log(value.id);
+                        }}>
+                            <p>{value.text}</p>
+                            <p>
+                                <span onClick={() => {
+                                    alert('개발중인 기능입니다!');
+                                }}>수정📜</span>
+                                <span onClick={(e) => todoDelete(idx, value)}>삭제💣</span>
+                            </p>
                         </li>
                     )}
                 </ul>

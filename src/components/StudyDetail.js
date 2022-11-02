@@ -1,15 +1,21 @@
 import { useDispatch, useSelector } from "react-redux";
-import { heartPlus, changeArr } from "../store";
+import { useParams } from "react-router-dom";
+import { heartPlus } from "../store";
 
 const StudyDetail = () => {
     let state = useSelector((state) => {return state});
     let dispatch = useDispatch();
+    let {id} = useParams();
+
+    let board = localStorage.getItem("BoardContent");
+    board = JSON.parse(board);
+
     return(
         <div className="wrap">
             <div className="study-box detail">
                 <div className="study-detail-title">
                     <div className="title">
-                        개발중인 페이지 입니다. 개발중인 페이지 입니다. 개발중인 페이지 입니다. 개발중인 페이지 입니다. 개발중인 페이지 입니다. 
+                        {board[id].title}
                     </div>
                     <div className="content">
                         <p>
@@ -21,17 +27,16 @@ const StudyDetail = () => {
                     </div>
                 </div>
                 <div className="study-detail-content">
-                    내용! 게시판 <br/>
-                    타이틀, 닉네임, 날짜, 댓글 수, 좋아요 갯수 불러오기<br/>
-                    작성한 게시글 내용 불러오기, 댓글 불러오기
+                    {board[id].content}
                 </div>
-                <div className="study-detail-comment" style={{position:'relative'}} >
-                    <textarea style={{borderRadius:'15px'}} placeholder="댓글을 남겨보세요!"></textarea>
-                    <div style={{position: 'absolute', bottom:'0', right:'0', fontFamily:'CookieRun Bold'}}>
+                <div className="study-detail-comment">
+                    <textarea placeholder="댓글을 남겨보세요!"></textarea>
+                    <div className="btn-set">
                         <button className="btn" onClick={() => {
                             dispatch(heartPlus());
-                        }} style={{marginRight:'10px'}}>💕좋아요💕({state.heart})</button>
-                        <button className="btn">댓글 남기기</button>
+                        }}>💕좋아요💕({state.heart})</button>
+                        <button className="btn" >댓글 남기기</button>
+                        <button className="btn">글 삭제</button>
                     </div>
                 </div>
                 <div className="study-detail-comment-write">

@@ -132,6 +132,7 @@ header{
     background-color: white;
     border-bottom: 1px solid lightgray;
     transition: .5s;
+    z-index: 3;
 }
 header > div{
     max-width: 1000px;
@@ -575,7 +576,7 @@ section .project > div:hover{
     display: none;
 }
 .todo-bg ul li input:checked + label p:first-child,
-.todo-bg ul li[data-check='true'] p:first-child{
+.todo-bg ul li.active p:first-child{
     text-decoration: line-through;
     color: gray;
     opacity: .8;
@@ -634,6 +635,24 @@ section .project > div:hover{
 .study-box .study-detail-content{
     min-height: 300px;
 }
+.study-box .study-detail-comment{
+    position: relative;
+}
+.study-box .study-detail-comment textarea{
+    border-radius: 15px;
+}
+.dark .study-box .study-detail-comment textarea{
+    color: white;
+}
+.study-box .study-detail-comment .btn-set{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-family: 'CookieRun Bold';
+}
+.study-box .study-detail-comment .btn-set button{
+    margin-right: 10px;
+}
 .study-box .study-detail-comment-write ul li{
     display: block;
     height: auto;
@@ -644,6 +663,22 @@ section .project > div:hover{
 }
 .study-box .study-detail-comment-write ul li span{
     margin-right: 10px;
+}
+/* study write */
+.study-box.write .study-detail-title{
+    padding: 0;
+    border-bottom: 0;
+}
+.study-box.write textarea{
+    margin-bottom: 0;
+    border-radius: 0;
+}
+.study-box.write .study-detail-content textarea,
+.study-box.write .study-detail-content{
+    min-height: 500px;
+}
+.study-box.write .study-detail-content{
+    margin-bottom: 20px;
 }
 
 /* post */
