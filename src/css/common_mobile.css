@@ -11,7 +11,7 @@
     .wrap{
         width: 100%;
         padding: 0 2.0833vw 0;
-        margin: 12.371vw auto 0;
+        margin: 12.371vw auto 3.0928vw;
     }
     .my-photo{
         width: 20.6186vw;
@@ -66,7 +66,7 @@
     }
     /* header */
     header{
-        padding: 0 30px;
+        padding: 0 3.9063vw;
         justify-content: space-between;
         /* height: 8.247vw; */
         height: 60px;
@@ -149,6 +149,10 @@
     .detail-item-content{
         margin-top: 2.6042vw;
     }
+    .detail-item-content .tab > div{
+        height: 7.8125vw;
+        line-height: 7.8125vw;
+    }
 }
 @media (max-width: 640px){
     body{
@@ -174,6 +178,10 @@
     }
     .my-info div:last-child ul li{
         line-height: 1rem;
+    }
+    .dark .my-info div ul li,
+    .dark .my-info div ul li a{
+        color: black;
     }
     /* shop, cart */
     .btn{

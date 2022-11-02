@@ -10,11 +10,12 @@ const Modal = () => {
         }}>
             <div className="modal" style={{color:'white'}}>
                 <ul>
-                    <li><Link to={''}>Dust</Link></li>
-                    <li><Link to={''}>About</Link></li>
-                    <li><Link to={''}>Portfolio</Link></li>
-                    <li><Link to={'/shop'}>슬쩍보기👀(shop, todoList)</Link></li>
+                    <li><Link to={'/'}>HOME</Link></li>
+                    <li><Link to={'/todolist'}>TodoList</Link></li>
+                    <li><Link to={'/shop'}>Shop</Link></li>
+                    <li><Link to={'/study'}>Board</Link></li>
                     <li><a href="https://github.com/min-ji07">Github</a></li>
+                    <li><a href="https://min-ji07.tistory.com/">Blog</a></li>
                 </ul>
             </div>
         </div>

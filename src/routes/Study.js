@@ -34,9 +34,6 @@ function Study(){
                     </ul>
                 </div>
             </div>
-{/* 
-            <Link to={'/study/hook'}>클릭하면 /study/hook 으로 이동합니다</Link>
-            <Outlet/> */}
         </>
     )
 }

@@ -10,29 +10,34 @@ function Header(){
     const [dark, setDark] = useState(true);
     return(
         <header>
-            <Link to={'/'}><h1 className="logo">Dust
-            <span className="dark-mode" onClick={(e) => {
-                // e.stopPropagation();
-                const click = e.currentTarget;
-                if(click === e.currentTarget){
-                    root.classList.toggle('dark');
-                    setDark(!dark);
-                }
-            }}>{dark ? '🌜모드' : '🌞모드'}</span></h1></Link>
-            <ul>
-                {/* 메뉴는 총 5개로 만들것, home(dust), about, portfolio, 슬쩍보기(shop, todoList), github */}
-                {/* <li><Link to={'/arr'}>arr</Link></li> */}
-                {/* <li><Link to={'/aboutme'}>about me</Link></li> */}
-                <li><Link to={'/todolist'}>TodoList</Link></li>
-                <li><Link to={'/shop'}>shop</Link></li>
-                {/* <li><Link to={'/post'}>project</Link></li> */}
-                <li><Link to={'/study'}>study</Link></li>
-                {/* <li><Link to={'/contact'}>contact</Link></li> */}
-                {/* <li><Link to={'/guestbook'}>방명록</Link></li> */}
-            </ul>
-            <div id="mobile-menu" onClick={() => {
-                dispatch(modalOpen(true));
-            }}>Menu</div>
+            <div>
+                {/* 이거 되나 일단 확인 */}
+                <a href="https://min-ji07.github.io/react-portfolio/">
+                    <h1 className="logo">Dust
+                    <span className="dark-mode" onClick={(e) => {
+                        e.stopPropagation();
+                        const click = e.currentTarget;
+                        if(click === e.currentTarget){
+                            root.classList.toggle('dark');
+                            setDark(!dark);
+                        }
+                    }}>{dark ? '🌜모드' : '🌞모드'}</span></h1>
+                </a>
+                <ul>
+                    {/* 메뉴는 총 5개로 만들것, home(dust), about, shop, todoList, github */}
+                    {/* <li><Link to={'/arr'}>arr</Link></li> */}
+                    {/* <li><Link to={'/aboutme'}>about me(삭)</Link></li> */}
+                    <li><Link to={'/todolist'}>TodoList</Link></li>
+                    <li><Link to={'/shop'}>shop</Link></li>
+                    {/* <li><Link to={'/post'}>project(삭)</Link></li> */}
+                    <li><Link to={'/study'}>Board</Link></li>
+                    {/* <li><Link to={'/contact'}>contact</Link></li> */}
+                    {/* <li><Link to={'/guestbook'}>방명록</Link></li> */}
+                </ul>
+                <div id="mobile-menu" onClick={() => {
+                    dispatch(modalOpen(true));
+                }}>Menu</div>   
+            </div>
         </header>
     )
 }

@@ -1,5 +1,9 @@
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { heartPlus, changeArr } from "../store";
+
 const StudyDetail = () => {
+    let state = useSelector((state) => {return state});
+    let dispatch = useDispatch();
     return(
         <div className="wrap">
             <div className="study-box detail">
@@ -12,7 +16,7 @@ const StudyDetail = () => {
                             <span>닉네임</span>
                             <span>2022.10.31</span>
                             <span>댓글(0)</span>
-                            <span>💖(0)</span>
+                            <span>💖({state.heart})</span>
                         </p>
                     </div>
                 </div>
@@ -23,7 +27,12 @@ const StudyDetail = () => {
                 </div>
                 <div className="study-detail-comment" style={{position:'relative'}} >
                     <textarea style={{borderRadius:'15px'}} placeholder="댓글을 남겨보세요!"></textarea>
-                    <button className="btn" style={{position: 'absolute', bottom:'0', right:'0', fontFamily:'CookieRun Bold'}}>댓글 남기기</button>
+                    <div style={{position: 'absolute', bottom:'0', right:'0', fontFamily:'CookieRun Bold'}}>
+                        <button className="btn" onClick={() => {
+                            dispatch(heartPlus());
+                        }} style={{marginRight:'10px'}}>💕좋아요💕({state.heart})</button>
+                        <button className="btn">댓글 남기기</button>
+                    </div>
                 </div>
                 <div className="study-detail-comment-write">
                     <ul>

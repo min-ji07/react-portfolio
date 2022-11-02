@@ -24,7 +24,7 @@ const Contact = () => {
     console.log(test2.name);
 
     return(
-        <>
+        <div className="wrap">
             <h1 style={{textAlign: 'center', fontSize: '1.5rem'}}>{state.user}의 장바구니! 
                 <span onClick={() => { dispatch(changeName())}}>이름수정</span>
             </h1>
@@ -63,7 +63,7 @@ const Contact = () => {
                 }} className="btn">0번째 상품명 변경하기!</button>
             </div>
             <ContactDetail/>
-        </>
+        </div>
     )
 }
 

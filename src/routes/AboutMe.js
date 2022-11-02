@@ -92,7 +92,7 @@ function AboutMe(){
     }
     const [tab, setTab] = useState(0);
     return(
-        <>
+        <div className="wrap">
             <h1 className="blog">BLOG</h1>
             <ul className="flex">
                 <li onClick={() => {
@@ -184,7 +184,7 @@ function AboutMe(){
             {memo ? null : <Memo memo={memo}/>}
             {/* 이거 뭔가 이상한데..? */}
             {tab === 1 && <div>tab 2번</div>}
-        </>
+        </div>
     )
 }
 /*

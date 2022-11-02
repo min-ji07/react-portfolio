@@ -15,61 +15,87 @@ const TodoList = () => {
     // 요청 실패시 알아서 리트라이 해줌
     // props 전송 안해도 되고 한번 더 입력해주면 알아서 한번만 가져옴
 
-    console.log(result);
+    // console.log(result);
     // console.log(result.data);
     // console.log(result.isLoading);
     // console.log(result.error);
 
-
-    const [todoList, setTodoList] = useState([]);
+    
     const inputValue = useRef();
+    const [todoList, setTodoList] = useState([]);
+    // localStorage 저장
+    let todo = localStorage.getItem("todoList");
+    // todo에 배열로 가져옴
+    todo = JSON.parse(todo);
+    useEffect(() => {
+        if(todo == null){
+            // 값이 없으면 localStorage에 배열만들어놓기
+            localStorage.setItem("todoList", JSON.stringify([]));
+        }else{
+            setTodoList(todo);
+        }
+    },[])
+    // todoList 작성 후 enter 
     const onKeyPress = (e) => {
-        let text = e.target.value;
+        let todos = e.target.value;
         if(e.key === 'Enter'){
-            let copy = [...todoList];
-            copy.push(text);
-            setTodoList(copy);
+            if(todos === ""){
+                alert('뭐라도 기록해보세요!')
+            }else{
+                // 배열에 입력된 값 추가, 객체 기본 값 추가
+                todo.unshift({text: todos, id: Date.now()});
+                // 중복허용하지 않는 array자료형
+                todo = new Set(todo);
+                // 다시 array로 만들어주기
+                todo = Array.from(todo);
+                localStorage.setItem("todoList", JSON.stringify(todo));
+                setTodoList(todo);
+            }
             inputValue.current.value = '';
         }
     }
-    // localStorage 저장해보기
-    localStorage.setItem("todoList", JSON.stringify(todoList));
-    let todo = localStorage.getItem("todoList");
-    if(todo === undefined){
-        console.log('todoList값이 없습니다.')
-    }else{
-        // console.log('값이 있습니다')
-        // const save = localStorage.getItem("todoList");
-        // let saveTodo = JSON.parse(save);
-        // setTodoList(saveTodo);
+    // 삭제
+    const todoDelete = (idx) => {
+        todo.splice(idx, 1);
+        localStorage.setItem("todoList", JSON.stringify(todo));
+        setTodoList(todo);
     }
     return(
         <div className="wrap">
-            <div style={{display:'flex', justifyContent:'space-between'}}>
-                {/* <h2>{result.data.name}님 안녕하세요!</h2> */}
-                <h1 style={{marginBottom:'20px'}}>일정을 기록하세요!</h1>
-            </div>
+            <h1 style={{marginBottom:'20px'}}>일정을 기록하세요!</h1>
             <input type="text" placeholder="ToDo List를 작성해보세요~!" style={{padding: '10px', height:'50px', fontSize: '18px'}}
             onKeyPress={onKeyPress} ref={inputValue}
              />
              <div className="todo-bg">
                 <ul>
                     <li>
-                        <p>일정을 기록해보세요! 책 읽기, 공부하기, 취미생활하기</p>
-                        <p>
-                            <span>수정📝</span>
-                            <span>삭제💣</span>
-                            <span>완료🤗</span>
-                        </p>
+                        <input id="todo-test" type="checkbox"></input>
+                        <label htmlFor="todo-test">
+                            <p>일정을 기록해보세요! 클릭시 완료 표시 됩니다!</p>
+                            <p>
+                                <span onClick={() => {
+                                    alert('개발중인 기능입니다!')
+                                }}>수정📜</span>
+                                <span onClick={() => {
+                                    alert('기록한 일정을 삭제해보세요!')
+                                }}>삭제💣</span>
+                            </p>
+                        </label>
                     </li>
+                    {/* checked 가 기존 html에 붙어있고 따라 옮겨지지않음 */}
+                    {/* 새로고침시 완료처리 삭제됨 */}
                     {todoList.map((value, idx) => 
                         <li key={idx}>
-                            <p>{value}</p>
-                            <p>
-                                <span>수정📝</span>
-                                <span>삭제💣</span>
-                                <span>완료🤗</span>
-                            </p>
+                            <input id={value.id} type="checkbox"></input>
+                            <label htmlFor={value.id}>
+                                <p>{value.text}</p>
+                                <p>
+                                    <span onClick={() => {
+                                        alert('개발중인 기능입니다!');
+                                    }}>수정📜</span>
+                                    <span onClick={(e) => todoDelete(idx)}>삭제💣</span>
+                                </p>
+                            </label>
                         </li>
                     )}
                 </ul>

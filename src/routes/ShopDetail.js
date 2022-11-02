@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams, Link, Outlet } from "react-router-dom";
 import { shopAddItem, btnSwitch } from "../store";
 import ShopBasket from "../components/ShopBasket";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const ShopDetail = () => {
     let state = useSelector((state) => {return state});
@@ -21,6 +21,8 @@ const ShopDetail = () => {
         localStorage.setItem("itemId", JSON.stringify(getItem));
     });
 
+    const [tab, setTab] = useState(0);
+
     return(
         <div className="wrap">
             <div onClick={() => {
@@ -38,11 +40,20 @@ const ShopDetail = () => {
                 })} className="cart-btn">담기👀</button>
             </div>
             <div className="detail-item-content" style={{}}>
-                탭 버튼 및 상세페이지 구현하기
+                <div className="tab" style={{}}>
+                    <div onClick={() => {
+                        setTab(0);
+                    }}>상세페이지</div>
+                    <div onClick={() => {
+                        setTab(1);
+                    }}>문의사항</div>
+                </div>
+                {tab === 0 ? 
+                    <div className="tab-inner">상세페이지</div> : 
+                    <div className="tab-inner wait">문의사항</div>
+                }
             </div>
             {state.close && <ShopBasket/>}
-            <Link to={`/shop/shopdetail/${id}/hook`}>클릭하면 /study/hook 으로 이동합니다</Link>
-            <Outlet/>
         </div>
     )
 }

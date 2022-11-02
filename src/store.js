@@ -168,15 +168,6 @@ let close = createSlice({
 })
 export let {btnSwitch} = close.actions;
 
-// todoList
-let todoList = createSlice({
-    name: 'todoList',
-    initialState: [],
-    reducer: {
-
-    }
-})
-
 // header menu 클릭시 모달창 띄우기
 let headerMenu = createSlice({
     name: 'headerMenu',
@@ -195,6 +186,19 @@ let headerMenu = createSlice({
 })
 export let { modalOpen } = headerMenu.actions;
 
+// 좋아요
+let heart = createSlice({
+    name: 'heart',
+    initialState: 0,
+    reducers: {
+        heartPlus(state){
+            // 글 하나에 좋아요 하나만 가능하게 만들기
+            return state += 1;
+        }
+    }
+})
+export let { heartPlus } = heart.actions;
+
 
 export default configureStore({
     // 위에 state값을 입력 후 여기 등록해줘야 사용가능
@@ -210,8 +214,8 @@ export default configureStore({
         cartItemDetail: cartItemDetail.reducer,
         shopItem: shopItem.reducer,
         close: close.reducer,
-        todoList: todoList.reducer,
         headerMenu: headerMenu.reducer,
+        heart: heart.reducer,
     }
 })
 
