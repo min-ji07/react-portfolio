@@ -25,7 +25,7 @@ function Study(){
                     <ul>
                         <li onClick={() => navigate(`studydetail`)} className="box">
                             <div className="title text-sort">
-                                개발중인 페이지 입니다. 글을 작성해보세요!
+                                개발중인 페이지 입니다. 글을 작성해보세요! (임시List)
                             </div>
                             <div className="content">
                                 <p>

@@ -187,17 +187,30 @@ let headerMenu = createSlice({
 export let { modalOpen } = headerMenu.actions;
 
 // 좋아요
-let heart = createSlice({
-    name: 'heart',
+let board = createSlice({
+    name: 'board',
     initialState: 0,
     reducers: {
         heartPlus(state){
             // 글 하나에 좋아요 하나만 가능하게 만들기
             return state += 1;
+        },
+        boardDelete(state, action){
+            let board = localStorage.getItem("BoardContent");
+            board = JSON.parse(board);
+            const id = action.payload;
+            console.log(board[id]);
+            if(window.confirm('글을 삭제하시겠습니까?😥')){
+                board.splice(id, 1);
+                localStorage.setItem("BoardContent", JSON.stringify(board));
+                window.location.href = '/study';
+            }else{
+                return
+            }
         }
     }
 })
-export let { heartPlus } = heart.actions;
+export let { heartPlus, boardDelete } = board.actions;
 
 
 export default configureStore({
@@ -215,7 +228,7 @@ export default configureStore({
         shopItem: shopItem.reducer,
         close: close.reducer,
         headerMenu: headerMenu.reducer,
-        heart: heart.reducer,
+        board: board.reducer,
     }
 })
 

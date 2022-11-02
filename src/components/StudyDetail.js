@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { heartPlus } from "../store";
+import { heartPlus, boardDelete } from "../store";
 
 const StudyDetail = () => {
     let state = useSelector((state) => {return state});
@@ -22,7 +22,7 @@ const StudyDetail = () => {
                             <span>닉네임</span>
                             <span>2022.10.31</span>
                             <span>댓글(0)</span>
-                            <span>💖({state.heart})</span>
+                            <span>💖({state.board})</span>
                         </p>
                     </div>
                 </div>
@@ -34,9 +34,11 @@ const StudyDetail = () => {
                     <div className="btn-set">
                         <button className="btn" onClick={() => {
                             dispatch(heartPlus());
-                        }}>💕좋아요💕({state.heart})</button>
+                        }}>💕좋아요💕({state.board})</button>
                         <button className="btn" >댓글 남기기</button>
-                        <button className="btn">글 삭제</button>
+                        <button className="btn" onClick={() => {
+                            dispatch(boardDelete(id));
+                        }}>글 삭제</button>
                     </div>
                 </div>
                 <div className="study-detail-comment-write">

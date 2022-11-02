@@ -14,7 +14,7 @@ const Index = () => {
         <div className="wrap">
             <section>
                 <div className="my-photo">
-                    <img src={process.env.PUBLIC_URL + `/img/2e7bac51f4d7d7f33379dae9ce79b0ec1c1773c4.gif`} alt="사진"/>
+                    <img src={process.env.PUBLIC_URL + `/img/dust.jpg`} alt="dust"/>
                 </div>
                 <h1>김민지 | Portfolio</h1>
                 <div className="my-info">

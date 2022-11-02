@@ -15,10 +15,14 @@ const StudyWrite = () => {
     const onSubmit = (e) => {
         let title = document.getElementById('title');
         let content = document.getElementById('content');
-        board.unshift({title: title.value, content: content.value});
-        // 댓글은 따로 빼서 id에 따른 댓글을 가져오면 좋음
-        localStorage.setItem("BoardContent", JSON.stringify(board));
-        window.location.href = '/study';
+        if(title.value === ""){
+            alert('제목을 입력하세요!')
+        }else{
+            board.unshift({title: title.value, content: content.value});
+            // 댓글은 따로 빼서 id에 따른 댓글을 가져오면 좋음
+            localStorage.setItem("BoardContent", JSON.stringify(board));
+            window.location.href = '/study';
+        }
     }
     return(
         <div className="wrap">
