@@ -40,7 +40,7 @@ const Index = () => {
                                 <a href="https://min-ji07.tistory.com/">📖 Blog</a>
                             </li>
                             <li>
-                                <a href="#">🎉 aboutMe</a>
+                                <a href="#">🎉 이력서 다운로드</a>
                             </li>
                         </ul>
                     </div>

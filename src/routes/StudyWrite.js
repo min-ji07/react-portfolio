@@ -21,7 +21,7 @@ const StudyWrite = () => {
             board.unshift({title: title.value, content: content.value});
             // 댓글은 따로 빼서 id에 따른 댓글을 가져오면 좋음
             localStorage.setItem("BoardContent", JSON.stringify(board));
-            window.location.href = '/study';
+            window.location.href = 'https://min-ji07.github.io/react-portfolio/study';
         }
     }
     return(

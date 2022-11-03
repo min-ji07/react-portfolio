@@ -14,9 +14,9 @@ function Study(){
     return(
         <>
             <div className="wrap">
-                <div style={{marginBottom: '20px', display:'flex', justifyContent:'space-between', alignItems:'center'}}>
+                <div className="study-title">
                     <h1>개발중인 페이지입니다.</h1>
-                    <input placeholder="제목을 검색해주세요." style={{padding:'10px', height:'50px', fontSize:'18px'}}></input>
+                    <input placeholder="제목을 검색해주세요."></input>
                 </div>
                 <button className="btn" onClick={() => navigate('studywrite')}>글쓰기</button>
                 <div className="study-box">

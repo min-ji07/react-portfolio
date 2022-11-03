@@ -589,6 +589,17 @@ section .project > div:hover{
 }
 
 /* study */
+.study-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.study-title input{
+    height: 50px;
+    font-size: 18px;
+    padding: 10px;
+}
 .study-box ul{
     display: flex;
     flex-direction: column;
