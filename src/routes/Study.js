@@ -46,7 +46,7 @@ function Study(){
                                         <span>닉네임</span>
                                         <span>2022.10.31</span>
                                         <span>댓글(0)</span>
-                                        <span>💖(0)</span>
+                                        <span>💖({value.heart})</span>
                                     </p>
                                 </div>
                             </li>

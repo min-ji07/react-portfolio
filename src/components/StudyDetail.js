@@ -22,7 +22,7 @@ const StudyDetail = () => {
                             <span>닉네임</span>
                             <span>2022.10.31</span>
                             <span>댓글(0)</span>
-                            <span>💖({state.board})</span>
+                            <span>💖({board[id].heart})</span>
                         </p>
                     </div>
                 </div>
@@ -32,10 +32,12 @@ const StudyDetail = () => {
                 <div className="study-detail-comment">
                     <textarea placeholder="댓글을 남겨보세요!"></textarea>
                     <div className="btn-set">
-                        <button className="btn" onClick={() => {
-                            dispatch(heartPlus());
-                        }}>💕좋아요💕({state.board})</button>
                         <button className="btn" >댓글 남기기</button>
+                        <button className="btn" onClick={() => {
+                            board[id].heart += 1;
+                            localStorage.setItem("BoardContent", JSON.stringify(board));
+                            dispatch(heartPlus(id));
+                        }}>💕좋아요💕({board[id].heart})</button>
                         <button className="btn" onClick={() => {
                             dispatch(boardDelete(id));
                         }}>글 삭제</button>

@@ -18,8 +18,9 @@ const StudyWrite = () => {
         if(title.value === ""){
             alert('제목을 입력하세요!')
         }else{
-            board.unshift({title: title.value, content: content.value});
+            board.unshift({id: Date.now(), title: title.value, content: content.value, heart: 0});
             // 댓글은 따로 빼서 id에 따른 댓글을 가져오면 좋음
+            // 글쓰고 배열 추가되면 하트 관련 배열도 추가해야할 것 같음
             localStorage.setItem("BoardContent", JSON.stringify(board));
             window.location.href = '/study';
         }

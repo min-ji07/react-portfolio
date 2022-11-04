@@ -186,20 +186,29 @@ let headerMenu = createSlice({
 })
 export let { modalOpen } = headerMenu.actions;
 
-// 좋아요
+// 게시판
 let board = createSlice({
     name: 'board',
-    initialState: 0,
+    initialState: [],
     reducers: {
-        heartPlus(state){
+        heartPlus(state, action){
             // 글 하나에 좋아요 하나만 가능하게 만들기
-            return state += 1;
+            let board = localStorage.getItem("BoardContent");
+            board = JSON.parse(board);
+            const idx = action.payload;
+            const id = state.find((v) => v.id === board[action.payload].id);
+            if(id){
+                id.heart += 1;
+            }else{
+                state.push(board[idx]);
+            }
+
         },
         boardDelete(state, action){
             let board = localStorage.getItem("BoardContent");
             board = JSON.parse(board);
             const id = action.payload;
-            console.log(board[id]);
+            // console.log(board[id]);
             if(window.confirm('글을 삭제하시겠습니까?😥')){
                 board.splice(id, 1);
                 localStorage.setItem("BoardContent", JSON.stringify(board));
