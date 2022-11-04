@@ -29,6 +29,7 @@ const TodoList = () => {
     // todo에 배열로 가져옴
     todo = JSON.parse(todo);
     useEffect(() => {
+        inputValue.current.focus();
         if(todo == null){
             // 값이 없으면 localStorage에 배열만들어놓기
             localStorage.setItem("todoList", JSON.stringify([]));

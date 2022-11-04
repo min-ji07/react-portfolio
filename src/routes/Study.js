@@ -1,22 +1,39 @@
 import { Routes, Route, Link, Outlet, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 function Study(){
     let navigate = useNavigate();
     let board = localStorage.getItem("BoardContent");
     board = JSON.parse(board);
+    const search = useRef();
     useEffect(() => {
+        search.current.focus();
         if(board === null){
             localStorage.setItem("BoardContent", JSON.stringify([]));
         }else{
             return
         }
-    },[])
+    },[]);
+    const onChange = (e) => {
+        let text = e.target.value;
+        for(let i = 0; i < board.length; i++){
+            // console.log(board[i].title);
+            let title = board[i].title;
+            let search = title.indexOf(text);
+            if(search > 0){
+                console.log('있음!', title);
+                console.log("search: ",search, "번째에!");
+                // 이제 여기 값 있는것만 보여주면 됨
+            }else{
+
+            }
+        }
+    }
     return(
         <>
             <div className="wrap">
                 <div className="study-title">
-                    <h1>개발중인 페이지입니다.</h1>
-                    <input placeholder="제목을 검색해주세요."></input>
+                    <h1>게시판</h1>
+                    <input onChange={onChange} ref={search} placeholder="제목을 검색해주세요."></input>
                 </div>
                 <button className="btn" onClick={() => navigate('studywrite')}>글쓰기</button>
                 <div className="study-box">
@@ -25,7 +42,7 @@ function Study(){
                     <ul>
                         <li onClick={() => navigate(`studydetail`)} className="box">
                             <div className="title text-sort">
-                                개발중인 페이지 입니다. 글을 작성해보세요! (임시List)
+                                게시판 입니다. 글을 작성해보세요! (임시List)
                             </div>
                             <div className="content">
                                 <p>
