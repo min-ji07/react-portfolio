@@ -57,7 +57,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         {/* <Route path="/" element={<Home />} /> */}
         <Route path="/" element={<Index />} />
-        <Route path="/react-portfolio" element={<Index />} />
+        {/* <Route path="/react-portfolio" element={<Index />} /> */}
         {/* 위에 route 제외 오타 포함 모든 것 */}
         <Route path="*" element={<div>4 0 4</div>} />
       </Routes>

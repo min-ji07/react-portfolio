@@ -22,6 +22,7 @@ const TodoList = () => {
 
     
     const inputValue = useRef();
+    // const [todoCheck, setTodoCheck] = useState([]);
     const [todoList, setTodoList] = useState([]);
     // localStorage 저장
     let todo = localStorage.getItem("todoList");
@@ -43,7 +44,7 @@ const TodoList = () => {
                 alert('뭐라도 기록해보세요!')
             }else{
                 // 배열에 입력된 값 추가, 객체 기본 값 추가
-                todo.unshift({text: todos, id: Date.now()});
+                todo.unshift({text: todos, id: Date.now(), check: false});
                 // id: Date.now()
                 // 중복허용하지 않는 array자료형
                 todo = new Set(todo);
@@ -83,27 +84,22 @@ const TodoList = () => {
                             </p>
                         </label>
                     </li>
-                    {/* checked 가 기존 html에 붙어있고 따라 옮겨지지않음 */}
-                    {/* 새로고침시 완료처리 삭제됨 */}
-                    {/* {todoList.map((value, idx) => 
-                        <li key={value.id}>
-                            <input id={value.id} type="checkbox"></input>
-                            <label htmlFor={value.id}>
-                                <p>{value.text}</p>
-                                <p>
-                                    <span onClick={() => {
-                                        alert('개발중인 기능입니다!');
-                                    }}>수정📜</span>
-                                    <span onClick={(e) => todoDelete(idx, value)}>삭제💣</span>
-                                </p>
-                            </label>
-                        </li>
-                    )} */}
                     {todoList.map((value, idx) => 
                         <li key={value.id} onClick={() => {
-                            console.log(value.id);
+                            // 가져온 id 값이랑 배열에 있는 id 값이랑 비교해서 맞으면
+                            // check값을 true로 바꾸기
+                            let id = todoList[idx].id;
+                            let result = todo.find((todo) => todo.id === id);
+                            if(result){
+                                result.check = !result.check;
+                                localStorage.setItem("todoList", JSON.stringify(todo));
+                                setTodoList(todo);
+                            }
                         }}>
-                            <p>{value.text}</p>
+                            {value.check ? 
+                            <p className="active">{value.text}</p>
+                            : <p>{value.text}</p>
+                        }
                             <p>
                                 <span onClick={() => {
                                     alert('개발중인 기능입니다!');

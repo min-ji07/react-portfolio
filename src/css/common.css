@@ -575,8 +575,7 @@ section .project > div:hover{
 .todo-bg ul li input{
     display: none;
 }
-.todo-bg ul li input:checked + label p:first-child,
-.todo-bg ul li.active p:first-child{
+.todo-bg ul li p.active{
     text-decoration: line-through;
     color: gray;
     opacity: .8;
