@@ -66,11 +66,12 @@ const StudyDetail = () => {
                             if(window.confirm('글을 삭제하시겠습니까?😥')){
                                 board.splice(id, 1);
                                 localStorage.setItem("BoardContent", JSON.stringify(board));
-                                setLoading(true);
-                                setTimeout(() => {
-                                    navigate('/study');
-                                    setFade('ani-fade-out');
-                                },1500)
+                                navigate('/study');
+                                // setLoading(true);
+                                // setTimeout(() => {
+                                //     setFade('ani-fade-out');
+                                //     // 맨 밑에 글 삭제시 흰 바탕으로 바뀜
+                                // },1500)
                             }else{
                                 return
                             }
