@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/react-portfolio/static/css/main.2051042f.css",
-    "main.js": "/react-portfolio/static/js/main.14ed445e.js",
-    "static/js/787.d6d23156.chunk.js": "/react-portfolio/static/js/787.d6d23156.chunk.js",
-    "static/media/CookieRun Bold.ttf": "/react-portfolio/static/media/CookieRun Bold.07162854e5b0889acf82.ttf",
-    "index.html": "/react-portfolio/index.html",
-    "main.2051042f.css.map": "/react-portfolio/static/css/main.2051042f.css.map",
-    "main.14ed445e.js.map": "/react-portfolio/static/js/main.14ed445e.js.map",
-    "787.d6d23156.chunk.js.map": "/react-portfolio/static/js/787.d6d23156.chunk.js.map"
+    "main.css": "https://min-ji07.github.io/react-portfolio/static/css/main.9fd2aa89.css",
+    "main.js": "https://min-ji07.github.io/react-portfolio/static/js/main.fe38d6d5.js",
+    "static/js/787.d6d23156.chunk.js": "https://min-ji07.github.io/react-portfolio/static/js/787.d6d23156.chunk.js",
+    "static/media/CookieRun Bold.ttf": "https://min-ji07.github.io/react-portfolio/static/media/CookieRun Bold.07162854e5b0889acf82.ttf",
+    "index.html": "https://min-ji07.github.io/react-portfolio/index.html",
+    "main.9fd2aa89.css.map": "https://min-ji07.github.io/react-portfolio/static/css/main.9fd2aa89.css.map",
+    "main.fe38d6d5.js.map": "https://min-ji07.github.io/react-portfolio/static/js/main.fe38d6d5.js.map",
+    "787.d6d23156.chunk.js.map": "https://min-ji07.github.io/react-portfolio/static/js/787.d6d23156.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2051042f.css",
-    "static/js/main.14ed445e.js"
+    "static/css/main.9fd2aa89.css",
+    "static/js/main.fe38d6d5.js"
   ]
 }
