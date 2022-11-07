@@ -205,22 +205,9 @@ let board = createSlice({
             }
 
         },
-        boardDelete(state, action){
-            let board = localStorage.getItem("BoardContent");
-            board = JSON.parse(board);
-            const id = action.payload;
-            // console.log(board[id]);
-            if(window.confirm('글을 삭제하시겠습니까?😥')){
-                board.splice(id, 1);
-                localStorage.setItem("BoardContent", JSON.stringify(board));
-                // window.location.href = `${process.env.PUBLIC_URL}/study`;
-            }else{
-                return
-            }
-        }
     }
 })
-export let { heartPlus, boardDelete } = board.actions;
+export let { heartPlus } = board.actions;
 
 
 export default configureStore({

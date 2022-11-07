@@ -1,5 +1,5 @@
 import { Routes, Route, Link, Outlet, useNavigate } from "react-router-dom";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 function Study(){
     let navigate = useNavigate();
     let board = localStorage.getItem("BoardContent");
@@ -19,9 +19,10 @@ function Study(){
             // console.log(board[i].title);
             let title = board[i].title;
             let search = title.indexOf(text);
-            if(search > 0){
+            // console.log(title, search);
+            if(search >= 0){
                 console.log('있음!', title);
-                console.log("search: ",search, "번째에!");
+                // console.log("search: ",search, "번째에!");
                 // 이제 여기 값 있는것만 보여주면 됨
             }else{
 

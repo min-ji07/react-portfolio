@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { heartPlus, boardDelete } from "../store";
+import { heartPlus } from "../store";
+import {useState, useEffect} from "react";
 
 const StudyDetail = () => {
     let state = useSelector((state) => {return state});
@@ -11,8 +12,27 @@ const StudyDetail = () => {
     let board = localStorage.getItem("BoardContent");
     board = JSON.parse(board);
 
+    // 로딩중
+    const [loading, setLoading] = useState(false);
+    // fade in
+    const [fade, setFade] = useState('');
+    useEffect(() => {
+        // fade 값이 변경되면 2초후에 아이디 값 추가
+        let clear = setTimeout(() => {setFade('ani-fade-out')}, 1000);
+        return(() => {
+            clearTimeout(clear);
+            setFade('');
+        })
+    }, [loading]);
+
     return(
         <div className="wrap">
+            {loading ? 
+                <div className={`loading-bar ` + fade}>
+                    <p>Loading...</p>
+                    <img src={process.env.PUBLIC_URL + `/img/1a04cafd9593925989a9589cc4531377a7695699.gif`} alt="loading..."/>
+                </div> : null}
+            {/* 배열 추가되도 안나오길래 확인 했더니 이미지가 없어서 그런 것 */}
             <div className="study-box detail">
                 <div className="study-detail-title">
                     <div className="title">
@@ -40,8 +60,21 @@ const StudyDetail = () => {
                             dispatch(heartPlus(id));
                         }}>💕좋아요💕({board[id].heart})</button>
                         <button className="btn" onClick={() => {
-                            dispatch(boardDelete(id));
-                            navigate('/study');
+                            navigate(`/study/studyamend/${id}`);
+                        }}>글 수정</button>
+                        <button className="btn" onClick={() => {
+                            if(window.confirm('글을 삭제하시겠습니까?😥')){
+                                board.splice(id, 1);
+                                localStorage.setItem("BoardContent", JSON.stringify(board));
+                                setLoading(true);
+                                setTimeout(() => {
+                                    navigate('/study');
+                                    setFade('ani-fade-out');
+                                },1500)
+                            }else{
+                                return
+                            }
+
                         }}>글 삭제</button>
                     </div>
                 </div>

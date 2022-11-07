@@ -15,6 +15,7 @@ import Post from './routes/Post';
 import Hook from './components/Hook';
 import PostDetail from './components/PostDetail';
 import StudyDetail from './components/StudyDetail';
+import StudyAmend from './components/StudyAmend';
 import Contact from './routes/Contact';
 import Header from './routes/Header';
 import Footer from './routes/Footer';
@@ -54,6 +55,7 @@ function App() {
         <Route path="/study/*" element={<Study />}/>
         <Route path="/study/studywrite" element={<StudyWrite />}/>
         <Route path="/study/studydetail/:id" element={<StudyDetail />} />
+        <Route path="/study/studyamend/:id" element={<StudyAmend/>} />
         <Route path="/contact" element={<Contact />} />
         {/* <Route path="/" element={<Home />} /> */}
         <Route path="/" element={<Index />} />
