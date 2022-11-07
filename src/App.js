@@ -1,7 +1,7 @@
 import { 
-  BrowserRouter as Router,
+  BrowserRouter,
   Routes,
-  Route
+  Route,
  } from 'react-router-dom';
 import { useSelector } from "react-redux";
 import './App.css';
@@ -31,7 +31,7 @@ import StudyWrite from './routes/StudyWrite';
 function App() {
   let state = useSelector((state) => {return state.headerMenu});
   return (
-    <Router>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       {state && <Modal/>}
       <Header/>
       <Routes>
@@ -52,17 +52,17 @@ function App() {
         </Route>
         <Route path="/guestbook" element={<GuestBook/>} />
         <Route path="/study/*" element={<Study />}/>
-        <Route path="study/studywrite" element={<StudyWrite />}/>
+        <Route path="/study/studywrite" element={<StudyWrite />}/>
         <Route path="/study/studydetail/:id" element={<StudyDetail />} />
         <Route path="/contact" element={<Contact />} />
         {/* <Route path="/" element={<Home />} /> */}
         <Route path="/" element={<Index />} />
-        {/* <Route path="/react-portfolio" element={<Index />} /> */}
+        <Route path="/react-portfolio/*" element={<Index />} />
         {/* 위에 route 제외 오타 포함 모든 것 */}
         <Route path="*" element={<div>4 0 4</div>} />
       </Routes>
       <Footer/>
-    </Router>
+    </BrowserRouter>
   );
 }
 export default App;

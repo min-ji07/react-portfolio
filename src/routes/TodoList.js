@@ -102,7 +102,8 @@ const TodoList = () => {
                             : <p>{value.text}</p>
                         }
                             <p>
-                                <span onClick={() => {
+                                <span onClick={(e) => {
+                                    e.stopPropagation();
                                     alert('개발중인 기능입니다!');
                                 }}>수정📜</span>
                                 <span onClick={(e) => todoDelete(idx, value)}>삭제💣</span>

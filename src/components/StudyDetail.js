@@ -1,11 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { heartPlus, boardDelete } from "../store";
 
 const StudyDetail = () => {
     let state = useSelector((state) => {return state});
     let dispatch = useDispatch();
     let {id} = useParams();
+    const navigate = useNavigate();
 
     let board = localStorage.getItem("BoardContent");
     board = JSON.parse(board);
@@ -40,6 +41,7 @@ const StudyDetail = () => {
                         }}>💕좋아요💕({board[id].heart})</button>
                         <button className="btn" onClick={() => {
                             dispatch(boardDelete(id));
+                            navigate('/study');
                         }}>글 삭제</button>
                     </div>
                 </div>

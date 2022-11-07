@@ -28,6 +28,7 @@ function Header(){
                     {/* <li><Link to={'/aboutme'}>about me(삭)</Link></li> */}
                     <li><Link to={'/todolist'}>TodoList</Link></li>
                     <li><Link to={'/shop'}>shop</Link></li>
+                    <li><Link to={'/cart'}>cart</Link></li>
                     {/* <li><Link to={'/post'}>project(삭)</Link></li> */}
                     <li><Link to={'/study'}>Board</Link></li>
                     <li><a href="https://github.com/min-ji07">Github</a></li>

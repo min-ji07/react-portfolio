@@ -1,9 +1,11 @@
 import { useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const StudyWrite = () => {
     const textRef = useRef();
     let board = localStorage.getItem("BoardContent");
     board = JSON.parse(board);
+    const navigate = useNavigate();
     useEffect(() => {
         textRef.current.focus();
         if(board === null){
@@ -22,7 +24,8 @@ const StudyWrite = () => {
             // 댓글은 따로 빼서 id에 따른 댓글을 가져오면 좋음
             // 글쓰고 배열 추가되면 하트 관련 배열도 추가해야할 것 같음
             localStorage.setItem("BoardContent", JSON.stringify(board));
-            window.location.href = '/study';
+            // window.location.href = `${process.env.PUBLIC_URL}/study`;
+            navigate('/study');
         }
     }
     return(
