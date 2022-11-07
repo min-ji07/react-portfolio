@@ -51,7 +51,7 @@ const StudyDetail = () => {
                     {board[id].content}
                 </div>
                 <div className="study-detail-comment">
-                    <textarea placeholder="댓글을 남겨보세요!"></textarea>
+                    <textarea placeholder="댓글을 남겨보세요! (개발중!)"></textarea>
                     <div className="btn-set">
                         <button className="btn" >댓글 남기기</button>
                         <button className="btn" onClick={() => {
@@ -81,7 +81,7 @@ const StudyDetail = () => {
                 <div className="study-detail-comment-write">
                     <ul>
                         <li>
-                            <p>댓글입니다</p>
+                            <p>댓글입니다 (개발진행중!)</p>
                             <p><span>22.10.31</span><span>02:30</span></p>
                         </li>
                     </ul>
