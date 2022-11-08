@@ -6,6 +6,7 @@ const Cart = () => {
     let state = useSelector((state) => {return state});
     let dispatch = useDispatch();
 
+    console.log(state.shopItem);
     const [avg, setAvg] = useState([]);
     let getItem = localStorage.getItem("itemId");
     getItem = JSON.parse(getItem);
@@ -24,11 +25,10 @@ const Cart = () => {
                 <div>수량</div>
                 <div>금액</div>
                 <div>삭제하기</div>
-                {getItem.map((value, idx) => (
+                {state.shopItem.map((value, idx) => (
                     <React.Fragment key={idx}>
                         <div>{value.name}</div>
                         <div>{value.count}</div>
-                        {/* store에서 가져온 함수 사용하기 --> store.js에서 수정 함수 실행해주세요(어디서 잘못했는지 찾기 쉬움) */}
                         <div>{value.price * value.count}</div>
                         <div><button onClick={() => {
                             dispatch(shopDeleteItem(value.id));
@@ -36,7 +36,7 @@ const Cart = () => {
                         }}>😢</button></div>
                     </React.Fragment>
                 ))}
-                {getItem.length ?
+                {state.shopItem.length ?
                 <>
                     <div className="cart-avg">총액</div>
                     <div>{avg}</div>

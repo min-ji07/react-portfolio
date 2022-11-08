@@ -154,6 +154,9 @@ let shopItem = createSlice({
             localStorage.setItem("itemId", JSON.stringify(state));
         },
         allDeleteItem(state){
+            // return state = [];
+            state = [];
+            localStorage.setItem("itemId", JSON.stringify(state));
             return state = [];
         },
     }
