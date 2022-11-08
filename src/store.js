@@ -137,18 +137,21 @@ let shopItem = createSlice({
     initialState: [],
     reducers: {
         shopAddItem(state, action){
-            // console.log('click 한 값 가져옴: ', action.payload);
             let value = state.find((v) => v.id === action.payload.id);
+            // console.log(action.payload.id, value);
             if(value === undefined){
                 state.push(action.payload);
+                localStorage.setItem("itemId", JSON.stringify(state));
             }else{
                 value.count++;
+                value.sum = value.count * value.price;
+                localStorage.setItem("itemId", JSON.stringify(state));
             }
         },
         shopDeleteItem(state, action){
-            // console.log('아이템 삭제');
-            let value = state.findIndex((v) => v.id === action.payload.id);
+            let value = state.findIndex((v) => v.id === action.payload);
             state.splice(value, 1);
+            localStorage.setItem("itemId", JSON.stringify(state));
         },
         allDeleteItem(state){
             return state = [];

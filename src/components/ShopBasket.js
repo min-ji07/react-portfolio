@@ -30,7 +30,7 @@ const ShopBasket = () => {
                             dispatch(shopAddItem(value))
                         }}>👍</div>
                         <div onClick={() => {
-                            dispatch(shopDeleteItem(value))
+                            dispatch(shopDeleteItem(value.id))
                         }}>😢</div>
                     </React.Fragment>
                 )}

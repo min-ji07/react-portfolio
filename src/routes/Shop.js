@@ -10,9 +10,9 @@ const Shop = () => {
     let navigate = useNavigate();
 
     useEffect(() => {
-        let arr = localStorage.getItem("itemId");
-        arr = JSON.parse(arr);
-        if(Array.isArray(arr)){
+        let getItem = localStorage.getItem("itemId");
+        getItem = JSON.parse(getItem);
+        if(Array.isArray(getItem)){
             return
         }else{
             localStorage.setItem("itemId", JSON.stringify([]))
