@@ -774,7 +774,7 @@ section .project > div:hover{
 .cart-grid{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    margin: 10px 30px;
+    margin: 10px 0px;
 }
 .cart-grid > div{
     border-bottom: 1px solid lightgray;
