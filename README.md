@@ -7,18 +7,18 @@
 <br/><br/>
 ## 🚀 핵심기능
 
-### * 반응형 구현
-### * 다크모드 구현
-### * 투두리스트
+### 반응형 구현
+### 다크모드 구현
+### 투두리스트
 
 ![todolist](https://user-images.githubusercontent.com/59169459/201837378-8d322c06-2370-46ed-8b59-f00726a69fac.gif)
-### * 샵 
+### 샵 
 
 ![shop](https://user-images.githubusercontent.com/59169459/201837403-0f20fee1-3f34-480d-886a-9addeff7c4a3.gif)
-### * 장바구니
+### 장바구니
 
 ![cart](https://user-images.githubusercontent.com/59169459/201837419-8b520c60-ff24-4db9-afcb-b8a0f8ac75ff.gif)
-### * 게시판
+### 게시판
 
 ![board](https://user-images.githubusercontent.com/59169459/201837437-7917c15b-b92d-4848-a069-389d7ac8e2c3.gif)
 
