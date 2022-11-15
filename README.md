@@ -16,7 +16,7 @@
 
 ## 프로젝트 기간
 
-## skill
+## **skill**
 
 React, html5, css3, Javascript
 
