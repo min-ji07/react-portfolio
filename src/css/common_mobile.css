@@ -54,7 +54,6 @@
     .todo-bg{
         width: 100%;
     }
-
 }
 
 
@@ -123,6 +122,11 @@
     .btn{
         font-size: .8em;
         border-radius: 1.3021vw;
+    }
+    /* todo */
+    .todo-bg ul li{
+        min-height: 6.1856vw;
+        line-height: 6.1856vw;
     }
     /* project */
     section .project{
