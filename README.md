@@ -1,4 +1,4 @@
-# React Portfolio(1인 프로젝트)
+# React Portfolio
 
 개인 포트폴리오 사이트
 리액트를 사용하여 만든 첫 프로젝트 입니다.
