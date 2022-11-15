@@ -20,6 +20,7 @@ const Index = () => {
                 <div className="my-info">
                     <div>
                         보이는 결과물을 만드는 것에 흥미를 느낍니다.<br/>
+                        관심 분야가 있으면 과감하게 부딪쳐보는 성향으로 배우는 것을 두려워하지 않고 시도하며, <br/>
                         사용자가 편리하게 사용할 앱, 웹을 만드는 프론트엔드 개발자로 성장하고 싶습니다.
                     </div>
                     <div>
@@ -40,7 +41,7 @@ const Index = () => {
                                 <a href="https://min-ji07.tistory.com/">📖 Blog</a>
                             </li>
                             <li>
-                                <a href="#">🎉 이력서 다운로드</a>
+                                <a href={process.env.PUBLIC_URL + `/file/pdf.pdf`} download="프론트엔드 개발자가 되고싶은 퍼블리셔 김민지입니다.">🎉 이력서 다운로드</a>
                             </li>
                         </ul>
                     </div>
