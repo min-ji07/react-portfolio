@@ -23,5 +23,5 @@ React, html5, css3, Javascript
 
 ### `npm start`
 
-개발 모드에서 앱을 실행합니다. 
+개발 모드에서 앱을 실행합니다. <br/>
 브라우저에서 보려면 http://localhost:3000
