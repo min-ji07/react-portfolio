@@ -5,7 +5,6 @@ import shopImg from './store/shopImgSlick'
 // redux store 세팅
 // index.js 에 Provider 세팅
 // 여러곳에서 필요하지 않은 state는 store에 작성할 필요 없음 --> 해당 컴포넌트에서 작성할 것
-import { useNavigate } from 'react-router-dom';
 
 let username = createSlice({
     name: 'username',

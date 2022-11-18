@@ -4,6 +4,7 @@ import {
   Route,
  } from 'react-router-dom';
 import { useSelector } from "react-redux";
+import { useState, useEffect } from 'react';
 import './App.css';
 import AboutMe from './routes/AboutMe';
 import GuestBook from './routes/GuestBook';
@@ -25,11 +26,23 @@ import TodoList from './routes/TodoList';
 import Modal from './components/Modal';
 import Index from './routes/Index';
 import StudyWrite from './routes/StudyWrite';
+import ProjectDetail from './routes/ProjectDetail';
 
 
 // https://leejeongmin.vercel.app/ 참고
 
+const useTitle = (initialTitle) =>{
+  const [title, setTitle] = useState(initialTitle);
+  const updateTitle = () => {
+      const htmlTitle = document.querySelector('title');
+      htmlTitle.innerText = title;
+  }
+  useEffect(updateTitle, [title]);
+  return setTitle;
+}
+
 function App() {
+  const titleUpdater = useTitle("민지의 포트폴리오");
   let state = useSelector((state) => {return state.headerMenu});
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL}>
@@ -59,6 +72,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         {/* <Route path="/" element={<Home />} /> */}
         <Route path="/" element={<Index />} />
+        <Route path="/projectdetail" element={<ProjectDetail />} />
         <Route path="/react-portfolio/*" element={<Index />} />
         {/* 위에 route 제외 오타 포함 모든 것 */}
         <Route path="*" element={<div>4 0 4</div>} />

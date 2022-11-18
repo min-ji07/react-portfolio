@@ -25,10 +25,10 @@
         font-size: 1.4em;
         margin-bottom: 2.0405vw;
     }
-    .my-info div:last-child{
+    /* .my-info div:last-child{
         margin-left: 3.093vw;
         max-width: 35.928vw;
-    }
+    } */
     /* project */
     section .project .project-content{
         overflow-y: scroll;
@@ -64,6 +64,9 @@
     .wrap{
         margin: 80px auto 0;
     }
+    section{
+        margin-bottom: 5.2083vw;
+    }
     /* header */
     header{
         padding: 0 3.9063vw;
@@ -85,9 +88,23 @@
     header #mobile-menu{
         display: block;
     }
+    .introduce{
+        margin-bottom: 2.6042vw;
+    }
+    .contact{
+        margin-left: 5.2083vw;
+        padding: 1.3021vw 0;
+    }
+    .contact li{
+        margin: 1.0417vw 0;
+    }
+    .my-photo{
+        width: 26.0417vw;
+        height: 26.0417vw;
+    }
     .my-info{
-        padding: 2.6042vw;
-        margin: 2.6042vw 0;
+        padding: 2.0833vw;
+        margin-top: 2.6042vw;
     }
     .modal-bg{
         position: fixed;
@@ -195,20 +212,42 @@
     .text-sort{
         line-height: .95rem;
     }
+    /* project */
+    .project-detail{
+        line-height: 1rem;
+    }
+    .project-detail h2{
+        padding-bottom: 3.1250vw;
+        margin-bottom: 3.1250vw;
+    }
+    .project-detail .highlight{
+        font-size: 1rem;
+        margin: 3.1250vw 0 1.5625vw;
+    }
+    .project-detail .highlight::after{
+        height: 2.8125vw;
+    }
+    .project-detail .project-detail-img p{
+        margin: 2.5000vw 0 4.0625vw;
+        padding: 2.5000vw;
+        border-radius: 2.3438vw;
+    }
+    .project-detail .highlight::after{
+
+    }
 }
 @media (max-width: 570px){
     .my-info{
         flex-direction: column;
     }
-    .my-info div:last-child{
-        /* max-width: 29.928vw; */
+    /* .my-info div:last-child{
         max-width: 100%;
         margin-left: 0;
         border-radius: 1.7544vw;
         padding: 1.7544vw;
         background: lightgray;
         margin-top: 1.7544vw;
-    }
+    } */
     .my-info div:last-child ul li{
         line-height: 1rem;
     }
