@@ -26,7 +26,8 @@ import TodoList from './routes/TodoList';
 import Modal from './components/Modal';
 import Index from './routes/Index';
 import StudyWrite from './routes/StudyWrite';
-import ProjectDetail from './routes/ProjectDetail';
+import ReactPortfolio from './routes/ReactPortfolio';
+import AiChat from './routes/AiChat';
 
 
 // https://leejeongmin.vercel.app/ 참고
@@ -72,7 +73,12 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         {/* <Route path="/" element={<Home />} /> */}
         <Route path="/" element={<Index />} />
+        <Route path="/reactportfolio" element={<ReactPortfolio />} />
+        <Route path="/aichat" element={<AiChat />} />
+        {/* <Route path="/projectdetail" element={<ProjectDetail />} />
         <Route path="/projectdetail" element={<ProjectDetail />} />
+        <Route path="/projectdetail" element={<ProjectDetail />} />
+        <Route path="/projectdetail" element={<ProjectDetail />} /> */}
         <Route path="/react-portfolio/*" element={<Index />} />
         {/* 위에 route 제외 오타 포함 모든 것 */}
         <Route path="*" element={<div>4 0 4</div>} />

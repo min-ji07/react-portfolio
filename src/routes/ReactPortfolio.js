@@ -1,18 +1,20 @@
-const ProjectDetail = () => {
+const ReactPortfolio = () => {
     window.scrollY = 0;
     return(
         <div className="wrap project-detail" >
+            {/* <img src={process.env.PUBLIC_URL + `/img/react/react_main_img2.png`} alt="" /> */}
             <h2>React 포트폴리오</h2>
             {/* 프로젝트 설명 */}
             <div>
                 <p>리액트로 작업한 첫 프로젝트입니다. </p>
-                <p>반응형으로 구현하였고 다크모드, 투두리스트, 쇼핑몰, 장바구니, 게시판 등의 기능 구현</p>
+                <p>반응형으로 구현하였고 다크모드, 투두리스트, 쇼핑몰, 장바구니, 게시판 등의 기능을 구현하였습니다.</p>
+                
+                <p>기간: 22.10.24 ~ 22.11.04(12일)</p>
+                <p>기여도: 100%</p>
                 <div className="link">
                     <a href="https://github.com/min-ji07/react-portfolio">🎈 깃허브 : https://github.com/min-ji07/react-portfolio</a>
                     <a href="https://min-ji07.github.io/react-portfolio/">🤜사이트로 이동🤛</a>
                 </div>
-                <p>기간: 22.10.24 ~ 22.11.04(12일)</p>
-                <p>기여도: 100%</p>
             </div>
             <p className="highlight">사용한 기술 스택</p>
             <p className="project-content">
@@ -20,6 +22,7 @@ const ProjectDetail = () => {
                 <span className="js">Javascript</span>
                 <span className="html">html5</span>
                 <span className="css">css3</span>
+                <span className="git">GIT</span>
             </p>
             <p className="highlight">프로젝트 미리보기</p>
             <div className="project-detail-img">
@@ -63,4 +66,4 @@ const ProjectDetail = () => {
         </div>
     )
 }
-export default ProjectDetail;
+export default ReactPortfolio;

@@ -151,8 +151,33 @@
         grid-gap: 3.9063vw;
         padding: 2.6042vw 6.5104vw 0;
     }
+    section .project > div > .project-img{
+        height: 31.2500vw;
+    }
     section .project .project-content{
         padding: 1.0417vw;
+        height: 18.2292vw;
+        font-size: 1rem;
+        overflow-y: auto;
+    }
+    section .project > div > .project-img{
+        height: 60%;
+    }
+    section .project .project-content{
+        height: 40%;
+    }
+    .project-detail h2{
+        font-size: 1.6rem;
+        padding-bottom: 2.6042vw;
+        margin-bottom: 2.6042vw;
+    }
+    .project-detail .link{
+        border-radius: 1.9531vw;
+        padding: 1.8229vw 1.3021vw;
+        margin-top: 1.8229vw;
+    }
+    .project-detail .highlight{
+        margin: 2.6042vw 0 1.3021vw;
     }
     /* shop */
     .shop-info{
@@ -202,17 +227,24 @@
     body{
         font-size: 0.700em;
     }
-    section .project .project-content{
+    /* section .project .project-content{
         height: 9.375vw;
-    }
+    } */
     .my-info div:first-child{
         line-height: 1rem;
     }
+    section ul li p span {
+        padding: 0.4688vw 1.5625vw;
+        border-radius: 0.6250vw;
+        margin-right: 1.4063vw;
+    }
+    
     /* study */
     .text-sort{
         line-height: .95rem;
     }
     /* project */
+    
     .project-detail{
         line-height: 1rem;
     }
@@ -231,9 +263,6 @@
         margin: 2.5000vw 0 4.0625vw;
         padding: 2.5000vw;
         border-radius: 2.3438vw;
-    }
-    .project-detail .highlight::after{
-
     }
 }
 @media (max-width: 570px){
@@ -321,6 +350,10 @@
     .top-btn p{
         font-size: 2.9787vw;
     }
+    /* project */
+    .project-detail h2{
+        font-size: 1.4rem;
+    }
 }
 @media (max-width: 375px){
     body{
@@ -329,5 +362,9 @@
     .study-title h1,
     .study-title input{
         font-size: .8rem;
+    }
+    /* project */
+    .project-detail{
+        line-height: .8rem;
     }
 }

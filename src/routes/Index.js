@@ -110,7 +110,7 @@ const Index = () => {
                 </div>
             </section>
             <section>
-                <h2>📜 프로젝트</h2>
+                <h2>📜 프로젝트 (클릭시 상세페이지로 이동합니다👏)</h2>
                 <div className="project">
                     {/* 프로젝트 누르면 상세페이지로 이동 */}
                     {/* 
@@ -120,40 +120,45 @@ const Index = () => {
                         반응형 웹사이트
                     */}
                     <div onClick={() => {
-                        navigate('/projectdetail');
+                        navigate('/reactportfolio');
                         window.scrollTo(0, 0);
                     }}>
                         <div className="project-img">
-                            <img src={process.env.PUBLIC_URL + `/img/react_main.png`} alt="사진"/>
+                            <img src={process.env.PUBLIC_URL + `/img/react_main.png`} alt="react portfolio"/>
                         </div>
                         <div className="project-content">
-                            <p>React 포트폴리오</p>
+                            <p className="title">React 포트폴리오</p>
                             <p>기간: 22.10.24 ~ 22.11.04(12일)</p>
                             <p>기여도: 100%</p>
-                            <p>리액트로 작업한 첫 프로젝트입니다.</p>
-                            <p>상세페이지 이동</p>
-                            <p>
+                            <p style={{lineHeight: '1.2'}}>
                                 <span className="react">React</span>
                                 <span className="js">Javascript</span>
                                 <span className="html">html5</span>
                                 <span className="css">css3</span>
+                                <span className="git">GIt</span>
                             </p>
-                            <p>클릭시 상세페이지로 이동합니다.</p>
-
+                            <p>리액트로 작업한 첫 프로젝트입니다.</p>
                         </div>
                     </div>
-                    <div>
-                        <a href="#" className="project-img">
-                            <img src={process.env.PUBLIC_URL + `/img/dfaf657304f2816b514692d36e761f7440f4d531.jpg`} alt="사진"/>
-                        </a>
+                    <div onClick={() => {
+                        navigate('/aichat');
+                        window.scrollTo(0, 0);
+                    }}>
+                        <div className="project-img">
+                            <img src={process.env.PUBLIC_URL + `/img/autoChat/list.png`} alt="ai chat"/>
+                        </div>
                         <div className="project-content">
-                            <p>React 포트폴리오</p>
-                            <p>
+                            <p className="title">AI 채팅 프로그램(진행중)</p>
+                            <p>기간: 22.11.18 ~ </p>
+                            <p>기여도: 100%</p>
+                            <p style={{lineHeight: '1.2'}}>
                                 <span className="react">React</span>
                                 <span className="js">Javascript</span>
                                 <span className="html">html5</span>
                                 <span className="css">css3</span>
+                                <span className="git">GIt</span>
                             </p>
+                            <p>리액트와 (무슨) api를 사용한 ai 채팅 프로젝트입니다.</p>
                         </div>
                     </div>
                     <div>
@@ -161,13 +166,17 @@ const Index = () => {
                             <img src={process.env.PUBLIC_URL + `/img/project1.PNG`} alt="사진"/>
                         </a>
                         <div className="project-content">
-                            <p>반응형 웹 사이트 퍼블리싱</p>
-                            <p>
+                            <p className="title">홍카페 사이트 퍼블리싱</p>
+                            <p>클릭시 해당 사이트로 이동합니다👉</p>
+                            <p>기여도: 100%</p>
+                            <p style={{lineHeight: '1.2'}}>
                                 <span className="js">Javascript</span>
                                 <span className="jquery">jquery</span>
                                 <span className="html">html5</span>
                                 <span className="css">css3</span>
+                                <span className="git">GIt</span>
                             </p>
+                            <p>반응형으로 구현한 웹 사이트로 현재 서비스중인 사이트입니다.</p>
                         </div>
                     </div>
                     <div>
@@ -175,28 +184,36 @@ const Index = () => {
                             <img src={process.env.PUBLIC_URL + `/img/project2.PNG`} alt="사진"/>
                         </a>
                         <div className="project-content">
-                            <p>반응형 웹 사이트 퍼블리싱</p>
-                            <p>
+                            <p>홍스토어 사이트 퍼블리싱</p>
+                            <p>클릭시 해당 사이트로 이동합니다👉</p>
+                            <p>기여도: 100%</p>
+                            <p style={{lineHeight: '1.2'}}>
                                 <span className="js">Javascript</span>
                                 <span className="jquery">jquery</span>
                                 <span className="html">html5</span>
                                 <span className="css">css3</span>
+                                <span className="git">GIt</span>
                             </p>
+                            <p>반응형으로 구현한 웹 사이트로 현재 서비스중인 사이트입니다.</p>
                         </div>
                     </div>
                     <div>
-                        <a href="https://vfriends.co/ko" className="project-img">
+                        <div href="https://vfriends.co/ko" className="project-img">
                             <img src={process.env.PUBLIC_URL + `/img/project3.PNG`} alt="사진"/>
-                        </a>
+                        </div>
                         <div className="project-content">
-                            <p>반응형 웹 사이트 퍼블리싱, 앱 컴포넌트 개발</p>
-                            <p>
+                        <p>보이스프렌즈 웹 사이트, 앱 화면 퍼블리싱</p>
+                            <p>기여도: 웹 100%, 앱 80%</p>
+                            <p style={{lineHeight: '1.2'}}>
                                 <span className="rn">React-native</span>
                                 <span className="js">Javascript</span>
                                 <span className="jquery">jquery</span>
                                 <span className="html">html5</span>
                                 <span className="css">css3</span>
+                                <span className="git">GIt</span>
                             </p>
+                            <p>반응형 웹 사이트 퍼블리싱, 앱 화면 컴포넌트 개발로 서비스중인 앱 입니다.</p>
+
                         </div>
                     </div>
                     <div>
@@ -204,13 +221,17 @@ const Index = () => {
                             <img src={process.env.PUBLIC_URL + `/img/project4.PNG`} alt="사진"/>
                         </a>
                         <div className="project-content">
-                            <p>반응형 웹 사이트 퍼블리싱</p>
-                            <p>
+                            <p>밤편지우체국 사이트 퍼블리싱</p>
+                            <p>클릭시 해당 사이트로 이동합니다👉</p>
+                            <p>기여도: 100%</p>
+                            <p style={{lineHeight: '1.2'}}>
                                 <span className="js">Javascript</span>
                                 <span className="jquery">jquery</span>
                                 <span className="html">html5</span>
                                 <span className="css">css3</span>
+                                <span className="git">GIt</span>
                             </p>
+                            <p>반응형으로 구현한 웹 사이트로 현재 서비스중인 사이트입니다.</p>
                         </div>
                     </div>
                 </div>

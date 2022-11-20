@@ -334,8 +334,8 @@ section .project > div > .project-img{
 section .project .project-content{
     display: flex;
     padding: 6px;
-    height: 60px;
-    /* overflow-y: scroll; */
+    height: 140px;
+    line-height: 1.2rem;
     flex-direction: column;
     justify-content: space-between;
 }
@@ -361,6 +361,9 @@ section .project .project-content{
 }
 .project-content .css{
     background: #1572B6;
+}
+.project-content .git{
+    background: black;
 }
 section .project > div img {
     width: 100%;
@@ -835,10 +838,16 @@ section .project > div:hover{
     line-height: 1.4rem;
 }
 .project-detail h2{
-    font-size: 1.2rem;
+    font-size: 2rem;
     padding-bottom: 20px;
     margin-bottom: 20px;
     border-bottom: 1px solid lightgray;
+}
+.project-detail .link{
+    border: 1px solid lightgray;
+    border-radius: 15px;
+    padding: 14px 10px;
+    margin-top: 14px;
 }
 .project-detail .link a{
     display: block;
