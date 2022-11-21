@@ -10,8 +10,8 @@ const AiChat = () => {
                 <p>기간: 22.11.18 ~</p>
                 <p>기여도: 100%</p>
                 <div className="link">
-                    <a href="https://github.com/min-ji07/auto-chat">🎈 깃허브 : https://github.com/min-ji07/auto-chat</a>
-                    <a href="https://min-ji07.github.io/auto-chat">🤜사이트로 이동🤛</a>
+                    <a target="_blank" href="https://github.com/min-ji07/auto-chat">🎈 깃허브 : https://github.com/min-ji07/auto-chat</a>
+                    <a target="_blank" href="https://min-ji07.github.io/auto-chat">🤜사이트로 이동🤛</a>
                 </div>
             </div>
             <p className="highlight">사용한 기술 스택</p>

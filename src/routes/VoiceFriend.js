@@ -9,7 +9,7 @@ const VoiceFriend = () => {
                 <p>웹 사이트는 반응형으로 작업하였고 자바스크립트를 사용하여 아이폰의 select 모양 슬라이드 기능을 구현하였습니다.</p>
                 <p>기여도: 웹 100%, 앱 80%</p>
                 <div className="link">
-                    <a href="https://vfriends.co/ko">🤜사이트로 이동🤛</a>
+                    <a target="_blank" href="https://vfriends.co/ko">🤜사이트로 이동🤛</a>
                 </div>
             </div>
             <p className="highlight">사용한 기술 스택</p>

@@ -12,8 +12,8 @@ const ReactPortfolio = () => {
                 <p>기간: 22.10.24 ~ 22.11.04(12일)</p>
                 <p>기여도: 100%</p>
                 <div className="link">
-                    <a href="https://github.com/min-ji07/react-portfolio">🎈 깃허브 : https://github.com/min-ji07/react-portfolio</a>
-                    <a href="https://min-ji07.github.io/react-portfolio/">🤜사이트로 이동🤛</a>
+                    <a target="_blank" href="https://github.com/min-ji07/react-portfolio">🎈 깃허브 : https://github.com/min-ji07/react-portfolio</a>
+                    <a target="_blank" href="https://min-ji07.github.io/react-portfolio/">🤜사이트로 이동🤛</a>
                 </div>
             </div>
             <p className="highlight">사용한 기술 스택</p>
