@@ -158,7 +158,7 @@ const Index = () => {
                                 <span className="css">css3</span>
                                 <span className="git">GIt</span>
                             </p>
-                            <p>리액트와 (무슨) api를 사용한 ai 채팅 프로젝트입니다.</p>
+                            <p>리액트와 api를 사용한 AI 채팅 프로젝트입니다.</p>
                         </div>
                     </div>
                     <div>
@@ -197,7 +197,10 @@ const Index = () => {
                             <p>반응형으로 구현한 웹 사이트로 현재 서비스중인 사이트입니다.</p>
                         </div>
                     </div>
-                    <div>
+                    <div onClick={() => {
+                        navigate('/voicefriend');
+                        window.scrollTo(0, 0);
+                    }}>
                         <div href="https://vfriends.co/ko" className="project-img">
                             <img src={process.env.PUBLIC_URL + `/img/project3.PNG`} alt="사진"/>
                         </div>
@@ -212,7 +215,7 @@ const Index = () => {
                                 <span className="css">css3</span>
                                 <span className="git">GIt</span>
                             </p>
-                            <p>반응형 웹 사이트 퍼블리싱, 앱 화면 컴포넌트 개발로 서비스중인 앱 입니다.</p>
+                            <p>반응형 웹 사이트 퍼블리싱, 앱 화면 컴포넌트 개발하였습니다. 현재 서비스중인 앱 입니다.</p>
 
                         </div>
                     </div>

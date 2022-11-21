@@ -28,6 +28,7 @@ import Index from './routes/Index';
 import StudyWrite from './routes/StudyWrite';
 import ReactPortfolio from './routes/ReactPortfolio';
 import AiChat from './routes/AiChat';
+import VoiceFriend from './routes/VoiceFriend';
 
 
 // https://leejeongmin.vercel.app/ 참고
@@ -75,8 +76,8 @@ function App() {
         <Route path="/" element={<Index />} />
         <Route path="/reactportfolio" element={<ReactPortfolio />} />
         <Route path="/aichat" element={<AiChat />} />
+        <Route path="/voicefriend" element={<VoiceFriend />} />
         {/* <Route path="/projectdetail" element={<ProjectDetail />} />
-        <Route path="/projectdetail" element={<ProjectDetail />} />
         <Route path="/projectdetail" element={<ProjectDetail />} />
         <Route path="/projectdetail" element={<ProjectDetail />} /> */}
         <Route path="/react-portfolio/*" element={<Index />} />

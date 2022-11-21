@@ -5,9 +5,9 @@ const AiChat = () => {
             <h2>AI 채팅 프로그램 (진행중)</h2>
             {/* 프로젝트 설명 */}
             <div>
-                <p>리액트를 사용하였고 open ai 의 ㅇㅇㅇ api를 사용하여 구현하였습니다.</p>
-                <p>반응형으로 작업하였고 (개발한 기능 입력)을 구현하였습니다.</p>
-                <p>기간: 22.11.18 ~ 22.00.00(~일)</p>
+                <p>리액트를 사용하였고 open ai 의 Text completion api를 사용중</p>
+                <p>반응형으로 작업 진행중!</p>
+                <p>기간: 22.11.18 ~</p>
                 <p>기여도: 100%</p>
                 <div className="link">
                     <a href="https://github.com/min-ji07/auto-chat">🎈 깃허브 : https://github.com/min-ji07/auto-chat</a>

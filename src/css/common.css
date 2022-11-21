@@ -869,6 +869,13 @@ section .project > div:hover{
     padding: 2px 0;
     z-index: -1;
 }
+.project-detail .project-detail-img .flex-img{
+    display: flex;
+    margin-bottom: 20px;
+}
+.project-detail .project-detail-img .flex-img img{
+    width: 20%;
+}
 .project-detail .project-detail-img p{
     margin: 16px 0 26px;
     display: inline-block;
