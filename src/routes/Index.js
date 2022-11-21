@@ -162,7 +162,7 @@ const Index = () => {
                         </div>
                     </div>
                     <div>
-                        <a href="https://www.hongcafe.com/" className="project-img">
+                        <a target="_blank" href="https://www.hongcafe.com/" className="project-img">
                             <img src={process.env.PUBLIC_URL + `/img/project1.PNG`} alt="사진"/>
                         </a>
                         <div className="project-content">
@@ -180,7 +180,7 @@ const Index = () => {
                         </div>
                     </div>
                     <div>
-                        <a href="https://www.hongstore.com/" className="project-img">
+                        <a target="_blank" href="https://www.hongstore.com/" className="project-img">
                             <img src={process.env.PUBLIC_URL + `/img/project2.PNG`} alt="사진"/>
                         </a>
                         <div className="project-content">
@@ -220,7 +220,7 @@ const Index = () => {
                         </div>
                     </div>
                     <div>
-                        <a href="https://bamletter.co/" className="project-img">
+                        <a target="_blank" href="https://bamletter.co/" className="project-img">
                             <img src={process.env.PUBLIC_URL + `/img/project4.PNG`} alt="사진"/>
                         </a>
                         <div className="project-content">
