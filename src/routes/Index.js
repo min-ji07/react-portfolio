@@ -36,7 +36,7 @@ const Index = () => {
                             <a href="https://min-ji07.tistory.com/">📖 Blog</a>
                         </li>
                         <li>
-                            <a href={process.env.PUBLIC_URL + `/file/pdf.pdf`} download="프론트엔드 개발자가 되고싶은 퍼블리셔 김민지입니다.">🎉 이력서 다운로드</a>
+                            <a href={process.env.PUBLIC_URL + `/file/pdf.pdf`} download="퍼블리셔 경력을 가진 신입 프론트엔드 개발자 김민지입니다.">🎉 이력서 다운로드</a>
                         </li>
                     </ul>
                 </div>
